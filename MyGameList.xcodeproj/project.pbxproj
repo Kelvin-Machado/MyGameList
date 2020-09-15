@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,13 +12,15 @@
 		B12FB91144145DBE4FBE7FEC /* Pods_MyGameList_MyGameListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB8EC5EC9FE4740939090C7 /* Pods_MyGameList_MyGameListUITests.framework */; };
 		B6079AD52510154F008E15CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6079AD42510154F008E15CC /* AppDelegate.swift */; };
 		B6079AD72510154F008E15CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6079AD62510154F008E15CC /* SceneDelegate.swift */; };
-		B6079AD92510154F008E15CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6079AD82510154F008E15CC /* ViewController.swift */; };
+		B6079AD92510154F008E15CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6079AD82510154F008E15CC /* LoginViewController.swift */; };
 		B6079ADC25101550008E15CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6079ADA25101550008E15CC /* Main.storyboard */; };
 		B6079ADE25101551008E15CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6079ADD25101551008E15CC /* Assets.xcassets */; };
 		B6079AE125101551008E15CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6079ADF25101551008E15CC /* LaunchScreen.storyboard */; };
 		B6079AEC25101551008E15CC /* MyGameListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6079AEB25101551008E15CC /* MyGameListTests.swift */; };
 		B6079AF725101551008E15CC /* MyGameListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6079AF625101551008E15CC /* MyGameListUITests.swift */; };
+		B62586F2251105B3009608B9 /* ColorsGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62586F1251105B3009608B9 /* ColorsGradient.swift */; };
 		B64ED4EE2510F03F005E61F1 /* plataformas.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64ED4ED2510F03F005E61F1 /* plataformas.swift */; };
+		B6ADE0DA251147E200378FCA /* SkyFloatingLabelTextField in Frameworks */ = {isa = PBXBuildFile; productRef = B6ADE0D9251147E200378FCA /* SkyFloatingLabelTextField */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +52,7 @@
 		B6079AD12510154F008E15CC /* MyGameList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGameList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6079AD42510154F008E15CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6079AD62510154F008E15CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B6079AD82510154F008E15CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B6079AD82510154F008E15CC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B6079ADB25101550008E15CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6079ADD25101551008E15CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6079AE025101551008E15CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 		B6079AF225101551008E15CC /* MyGameListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyGameListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6079AF625101551008E15CC /* MyGameListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGameListUITests.swift; sourceTree = "<group>"; };
 		B6079AF825101551008E15CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B62586F1251105B3009608B9 /* ColorsGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsGradient.swift; sourceTree = "<group>"; };
 		B64ED4ED2510F03F005E61F1 /* plataformas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plataformas.swift; sourceTree = "<group>"; };
 		FAB8EC5EC9FE4740939090C7 /* Pods_MyGameList_MyGameListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyGameList_MyGameListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -71,6 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82E945454FBC1DE0206BBD0A /* Pods_MyGameList.framework in Frameworks */,
+				B6ADE0DA251147E200378FCA /* SkyFloatingLabelTextField in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +140,7 @@
 				B6079B05251015C6008E15CC /* View Models */,
 				B6079B07251015F3008E15CC /* Controllers */,
 				B6079B06251015DF008E15CC /* Extensions */,
+				B62586F02511058F009608B9 /* Utilities */,
 				B6079B09251016DB008E15CC /* Storyboards */,
 				B6079AE225101551008E15CC /* Info.plist */,
 			);
@@ -185,7 +190,7 @@
 		B6079B07251015F3008E15CC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B6079AD82510154F008E15CC /* ViewController.swift */,
+				B6079AD82510154F008E15CC /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -206,6 +211,14 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		B62586F02511058F009608B9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B62586F1251105B3009608B9 /* ColorsGradient.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		F9F5FCD2D0431721B2EC4BA9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,7 +229,6 @@
 				1F41A1456CD6934B8AD577E1 /* Pods-MyGameListTests.debug.xcconfig */,
 				4B31B579D4592F48D9D3D323 /* Pods-MyGameListTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -238,6 +250,9 @@
 			dependencies = (
 			);
 			name = MyGameList;
+			packageProductDependencies = (
+				B6ADE0D9251147E200378FCA /* SkyFloatingLabelTextField */,
+			);
 			productName = MyGameList;
 			productReference = B6079AD12510154F008E15CC /* MyGameList.app */;
 			productType = "com.apple.product-type.application";
@@ -313,6 +328,9 @@
 				Base,
 			);
 			mainGroup = B6079AC82510154F008E15CC;
+			packageReferences = (
+				B6ADE0D8251147E200378FCA /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */,
+			);
 			productRefGroup = B6079AD22510154F008E15CC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -459,7 +477,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6079AD92510154F008E15CC /* ViewController.swift in Sources */,
+				B6079AD92510154F008E15CC /* LoginViewController.swift in Sources */,
+				B62586F2251105B3009608B9 /* ColorsGradient.swift in Sources */,
 				B6079AD52510154F008E15CC /* AppDelegate.swift in Sources */,
 				B64ED4EE2510F03F005E61F1 /* plataformas.swift in Sources */,
 				B6079AD72510154F008E15CC /* SceneDelegate.swift in Sources */,
@@ -797,6 +816,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B6ADE0D8251147E200378FCA /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Skyscanner/SkyFloatingLabelTextField.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B6ADE0D9251147E200378FCA /* SkyFloatingLabelTextField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B6ADE0D8251147E200378FCA /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */;
+			productName = SkyFloatingLabelTextField;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B6079AC92510154F008E15CC /* Project object */;
 }

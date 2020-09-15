@@ -6,8 +6,8 @@ target 'MyGameList' do
 
   # Pods for MyGameList
   pod "ViewAnimator"
-  pod "Shimmer"
   pod 'SwipeCellKit'
+  pod 'ShimmerLabel'
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
   pod 'RealmSwift'
