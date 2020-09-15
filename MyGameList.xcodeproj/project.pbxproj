@@ -15,6 +15,7 @@
 		B6079AE125101551008E15CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6079ADF25101551008E15CC /* LaunchScreen.storyboard */; };
 		B6079AEC25101551008E15CC /* MyGameListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6079AEB25101551008E15CC /* MyGameListTests.swift */; };
 		B6079AF725101551008E15CC /* MyGameListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6079AF625101551008E15CC /* MyGameListUITests.swift */; };
+		B64ED4EE2510F03F005E61F1 /* plataformas.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64ED4ED2510F03F005E61F1 /* plataformas.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		B6079AF225101551008E15CC /* MyGameListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyGameListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6079AF625101551008E15CC /* MyGameListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGameListUITests.swift; sourceTree = "<group>"; };
 		B6079AF825101551008E15CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B64ED4ED2510F03F005E61F1 /* plataformas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plataformas.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +103,13 @@
 			children = (
 				B6079AD42510154F008E15CC /* AppDelegate.swift */,
 				B6079AD62510154F008E15CC /* SceneDelegate.swift */,
-				B6079AD82510154F008E15CC /* ViewController.swift */,
-				B6079ADA25101550008E15CC /* Main.storyboard */,
 				B6079ADD25101551008E15CC /* Assets.xcassets */,
-				B6079ADF25101551008E15CC /* LaunchScreen.storyboard */,
+				B6079B04251015B1008E15CC /* Models */,
+				B6079B082510163B008E15CC /* Cells */,
+				B6079B05251015C6008E15CC /* View Models */,
+				B6079B07251015F3008E15CC /* Controllers */,
+				B6079B06251015DF008E15CC /* Extensions */,
+				B6079B09251016DB008E15CC /* Storyboards */,
 				B6079AE225101551008E15CC /* Info.plist */,
 			);
 			path = MyGameList;
@@ -126,6 +131,52 @@
 				B6079AF825101551008E15CC /* Info.plist */,
 			);
 			path = MyGameListUITests;
+			sourceTree = "<group>";
+		};
+		B6079B04251015B1008E15CC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B64ED4ED2510F03F005E61F1 /* plataformas.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B6079B05251015C6008E15CC /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		B6079B06251015DF008E15CC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B6079B07251015F3008E15CC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B6079AD82510154F008E15CC /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B6079B082510163B008E15CC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B6079B09251016DB008E15CC /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B6079ADA25101550008E15CC /* Main.storyboard */,
+				B6079ADF25101551008E15CC /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +312,7 @@
 			files = (
 				B6079AD92510154F008E15CC /* ViewController.swift in Sources */,
 				B6079AD52510154F008E15CC /* AppDelegate.swift in Sources */,
+				B64ED4EE2510F03F005E61F1 /* plataformas.swift in Sources */,
 				B6079AD72510154F008E15CC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
