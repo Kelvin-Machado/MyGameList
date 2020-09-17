@@ -36,7 +36,7 @@
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="shimmerColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="value" red="0.1686294079" green="0.1686248779" blue="0.1686258018" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
@@ -202,16 +202,40 @@
                                     <constraint firstAttribute="height" constant="100" id="Cke-Dk-ltU"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFG-xH-T2G">
+                                <rect key="frame" x="20" y="160" width="280" height="148"/>
+                                <state key="normal" image="btn-Meus-Jogos"/>
+                                <state key="selected" image="btn-Meus-Jogos-selected"/>
+                                <state key="highlighted" image="btn-Meus-Jogos-selected"/>
+                                <connections>
+                                    <segue destination="kb4-Bo-pkn" kind="show" id="N5S-XZ-sUs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jT-3Q-TJ4">
+                                <rect key="frame" x="20" y="328" width="280" height="148"/>
+                                <state key="normal" image="btn-Cadastrar-Jogos"/>
+                                <state key="selected" image="btn-Cadastrar-Jogos-selected"/>
+                                <state key="highlighted" image="btn-Cadastrar-Jogos-selected"/>
+                                <connections>
+                                    <segue destination="J6z-uL-Aqt" kind="show" id="VkU-Wu-tVr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.2000022233" green="0.19999706749999999" blue="0.1999980509" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="5jT-3Q-TJ4" secondAttribute="trailing" constant="20" id="4UU-3v-38G"/>
+                            <constraint firstItem="5jT-3Q-TJ4" firstAttribute="leading" secondItem="4Z8-Ng-3d5" secondAttribute="leading" constant="20" id="EbD-ch-cMp"/>
                             <constraint firstItem="Z2h-NK-74P" firstAttribute="leading" secondItem="aGN-2G-eZi" secondAttribute="leading" constant="16" id="FRV-Eq-Wjh"/>
+                            <constraint firstItem="5jT-3Q-TJ4" firstAttribute="top" secondItem="vFG-xH-T2G" secondAttribute="bottom" constant="20" id="ZEx-Oj-P8V"/>
+                            <constraint firstAttribute="trailing" secondItem="vFG-xH-T2G" secondAttribute="trailing" constant="20" id="b4A-bC-IuY"/>
                             <constraint firstItem="Z2h-NK-74P" firstAttribute="top" secondItem="aGN-2G-eZi" secondAttribute="top" constant="20" id="igc-HO-5mV"/>
+                            <constraint firstItem="vFG-xH-T2G" firstAttribute="top" secondItem="Z2h-NK-74P" secondAttribute="bottom" constant="40" id="kL7-wk-D0J"/>
                             <constraint firstItem="aGN-2G-eZi" firstAttribute="trailing" secondItem="Z2h-NK-74P" secondAttribute="trailing" constant="16" id="or6-2c-ZFC"/>
+                            <constraint firstItem="vFG-xH-T2G" firstAttribute="leading" secondItem="4Z8-Ng-3d5" secondAttribute="leading" constant="20" id="z9O-q1-7Tn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aGN-2G-eZi"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Menu" id="zGK-de-CBy">
+                    <navigationItem key="navigationItem" title="Menu" largeTitleDisplayMode="never" id="zGK-de-CBy">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="IjC-Dz-lwp">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
@@ -220,6 +244,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Bh-yn-3kJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3905.625" y="902.11267605633805"/>
+        </scene>
+        <!--Cadastrar Jogos-->
+        <scene sceneID="Nsy-S5-Qes">
+            <objects>
+                <viewController id="Fzb-dI-9t8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z7h-Zx-Yfm" customClass="ColorsGradient" customModule="MyGameList" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="477"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="zUl-3C-fjE"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Cadastrar Jogos" largeTitleDisplayMode="always" id="nzk-p7-FUT">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" image="chevron.left" catalog="system" id="62x-Be-XeW"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uin-h5-YBA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5696" y="1130"/>
+        </scene>
+        <!--Meus Jogos-->
+        <scene sceneID="HDD-nJ-Oq2">
+            <objects>
+                <viewController id="C7d-hi-ZN9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jbx-0e-GJm" customClass="ColorsGradient" customModule="MyGameList" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="477"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="de3-JR-y4x"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Meus Jogos" largeTitleDisplayMode="always" id="MXI-dS-32i">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" image="chevron.left" catalog="system" id="LdC-38-B1A"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lUH-47-Bco" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5698" y="398"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pFi-sO-kOn">
@@ -230,6 +290,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Qmy-sT-wcA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.014749839916150687" green="0.39223673746833115" blue="0.82205742385786795" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -262,10 +323,73 @@
             </objects>
             <point key="canvasLocation" x="2038.125" y="137.32394366197184"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bkR-5T-f3k">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="kb4-Bo-pkn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="Baw-BA-etc">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="E60-et-H7T"/>
+                    </navigationItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="L57-3L-MTE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.016927983609999999" green="0.3987208605" blue="0.85102385280000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.016927983609999999" green="0.3987208605" blue="0.85102385280000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="C7d-hi-ZN9" kind="relationship" relationship="rootViewController" id="9zZ-ky-TY1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rxJ-7d-MFj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4869" y="399"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gXE-Mm-q2I">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="J6z-uL-Aqt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="uHT-oF-xzl"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="rUW-eV-sLk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.016927983609999999" green="0.3987208605" blue="0.85102385280000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.016927983609999999" green="0.3987208605" blue="0.85102385280000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Fzb-dI-9t8" kind="relationship" relationship="rootViewController" id="Jx3-Ue-Ibs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rBh-cr-y91" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4867.5" y="1130.2816901408451"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Controle.preto" width="595" height="412"/>
+        <image name="btn-Cadastrar-Jogos" width="381" height="148"/>
+        <image name="btn-Cadastrar-Jogos-selected" width="381" height="148"/>
+        <image name="btn-Meus-Jogos" width="381" height="148"/>
+        <image name="btn-Meus-Jogos-selected" width="381" height="148"/>
         <image name="checkSelected" width="30" height="30"/>
         <image name="checkUnselected" width="30" height="30"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
     </resources>
 </document>
