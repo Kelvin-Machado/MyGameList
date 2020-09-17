@@ -19,6 +19,8 @@
 		B6079AEC25101551008E15CC /* MyGameListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6079AEB25101551008E15CC /* MyGameListTests.swift */; };
 		B6079AF725101551008E15CC /* MyGameListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6079AF625101551008E15CC /* MyGameListUITests.swift */; };
 		B62586F2251105B3009608B9 /* ColorsGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62586F1251105B3009608B9 /* ColorsGradient.swift */; };
+		B63A64332512CE7A00E7A1FF /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B63A64322512CE7A00E7A1FF /* IQKeyboardManagerSwift */; };
+		B63A64352512D49000E7A1FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A64342512D49000E7A1FF /* MenuViewController.swift */; };
 		B64ED4EE2510F03F005E61F1 /* plataformas.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64ED4ED2510F03F005E61F1 /* plataformas.swift */; };
 		B6ADE0DA251147E200378FCA /* SkyFloatingLabelTextField in Frameworks */ = {isa = PBXBuildFile; productRef = B6ADE0D9251147E200378FCA /* SkyFloatingLabelTextField */; };
 /* End PBXBuildFile section */
@@ -64,6 +66,7 @@
 		B6079AF625101551008E15CC /* MyGameListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGameListUITests.swift; sourceTree = "<group>"; };
 		B6079AF825101551008E15CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B62586F1251105B3009608B9 /* ColorsGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsGradient.swift; sourceTree = "<group>"; };
+		B63A64342512D49000E7A1FF /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B64ED4ED2510F03F005E61F1 /* plataformas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plataformas.swift; sourceTree = "<group>"; };
 		FAB8EC5EC9FE4740939090C7 /* Pods_MyGameList_MyGameListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyGameList_MyGameListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -75,6 +78,7 @@
 			files = (
 				82E945454FBC1DE0206BBD0A /* Pods_MyGameList.framework in Frameworks */,
 				B6ADE0DA251147E200378FCA /* SkyFloatingLabelTextField in Frameworks */,
+				B63A64332512CE7A00E7A1FF /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				B6079AD82510154F008E15CC /* LoginViewController.swift */,
+				B63A64342512D49000E7A1FF /* MenuViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 			name = MyGameList;
 			packageProductDependencies = (
 				B6ADE0D9251147E200378FCA /* SkyFloatingLabelTextField */,
+				B63A64322512CE7A00E7A1FF /* IQKeyboardManagerSwift */,
 			);
 			productName = MyGameList;
 			productReference = B6079AD12510154F008E15CC /* MyGameList.app */;
@@ -330,6 +336,7 @@
 			mainGroup = B6079AC82510154F008E15CC;
 			packageReferences = (
 				B6ADE0D8251147E200378FCA /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */,
+				B63A64312512CE7A00E7A1FF /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = B6079AD22510154F008E15CC /* Products */;
 			projectDirPath = "";
@@ -478,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6079AD92510154F008E15CC /* LoginViewController.swift in Sources */,
+				B63A64352512D49000E7A1FF /* MenuViewController.swift in Sources */,
 				B62586F2251105B3009608B9 /* ColorsGradient.swift in Sources */,
 				B6079AD52510154F008E15CC /* AppDelegate.swift in Sources */,
 				B64ED4EE2510F03F005E61F1 /* plataformas.swift in Sources */,
@@ -818,6 +826,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B63A64312512CE7A00E7A1FF /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.6;
+			};
+		};
 		B6ADE0D8251147E200378FCA /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Skyscanner/SkyFloatingLabelTextField.git";
@@ -829,6 +845,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B63A64322512CE7A00E7A1FF /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B63A64312512CE7A00E7A1FF /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
 		B6ADE0D9251147E200378FCA /* SkyFloatingLabelTextField */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B6ADE0D8251147E200378FCA /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */;
