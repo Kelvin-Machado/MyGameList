@@ -22,6 +22,8 @@
 		B63A64332512CE7A00E7A1FF /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B63A64322512CE7A00E7A1FF /* IQKeyboardManagerSwift */; };
 		B63A64352512D49000E7A1FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A64342512D49000E7A1FF /* MenuViewController.swift */; };
 		B64ED4EE2510F03F005E61F1 /* plataformas.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64ED4ED2510F03F005E61F1 /* plataformas.swift */; };
+		B6613C462513E5B400163C62 /* UsuarioCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6613C452513E5B400163C62 /* UsuarioCard.swift */; };
+		B6613C482513E5CD00163C62 /* UsuarioCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6613C472513E5CD00163C62 /* UsuarioCard.xib */; };
 		B6ADE0DA251147E200378FCA /* SkyFloatingLabelTextField in Frameworks */ = {isa = PBXBuildFile; productRef = B6ADE0D9251147E200378FCA /* SkyFloatingLabelTextField */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +70,8 @@
 		B62586F1251105B3009608B9 /* ColorsGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsGradient.swift; sourceTree = "<group>"; };
 		B63A64342512D49000E7A1FF /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B64ED4ED2510F03F005E61F1 /* plataformas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plataformas.swift; sourceTree = "<group>"; };
+		B6613C452513E5B400163C62 /* UsuarioCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioCard.swift; sourceTree = "<group>"; };
+		B6613C472513E5CD00163C62 /* UsuarioCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsuarioCard.xib; sourceTree = "<group>"; };
 		FAB8EC5EC9FE4740939090C7 /* Pods_MyGameList_MyGameListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyGameList_MyGameListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -212,6 +216,8 @@
 			children = (
 				B6079ADA25101550008E15CC /* Main.storyboard */,
 				B6079ADF25101551008E15CC /* LaunchScreen.storyboard */,
+				B6613C452513E5B400163C62 /* UsuarioCard.swift */,
+				B6613C472513E5CD00163C62 /* UsuarioCard.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -356,6 +362,7 @@
 			files = (
 				B6079AE125101551008E15CC /* LaunchScreen.storyboard in Resources */,
 				B6079ADE25101551008E15CC /* Assets.xcassets in Resources */,
+				B6613C482513E5CD00163C62 /* UsuarioCard.xib in Resources */,
 				B6079ADC25101550008E15CC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +495,7 @@
 				B63A64352512D49000E7A1FF /* MenuViewController.swift in Sources */,
 				B62586F2251105B3009608B9 /* ColorsGradient.swift in Sources */,
 				B6079AD52510154F008E15CC /* AppDelegate.swift in Sources */,
+				B6613C462513E5B400163C62 /* UsuarioCard.swift in Sources */,
 				B64ED4EE2510F03F005E61F1 /* plataformas.swift in Sources */,
 				B6079AD72510154F008E15CC /* SceneDelegate.swift in Sources */,
 			);
