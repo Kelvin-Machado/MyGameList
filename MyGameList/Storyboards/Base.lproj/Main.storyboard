@@ -25,7 +25,7 @@
                                             <constraint firstAttribute="width" constant="270" id="rcH-xA-lB2"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MyGameList" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TgI-uQ-xgw" customClass="ShimmerLabel" customModule="ShimmerLabel">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MyGameList" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TgI-uQ-xgw" customClass="ShimmerLabel" customModule="ShimmerLabel">
                                         <rect key="frame" x="66.5" y="45" width="137" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="137" id="3xk-4s-4Dm"/>
@@ -248,7 +248,7 @@
         <!--Cadastrar Jogos-->
         <scene sceneID="Nsy-S5-Qes">
             <objects>
-                <viewController id="Fzb-dI-9t8" sceneMemberID="viewController">
+                <viewController id="Fzb-dI-9t8" customClass="CadastrarJogosViewController" customModule="MyGameList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z7h-Zx-Yfm" customClass="ColorsGradient" customModule="MyGameList" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="477"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -256,7 +256,11 @@
                         <viewLayoutGuide key="safeArea" id="zUl-3C-fjE"/>
                     </view>
                     <navigationItem key="navigationItem" title="Cadastrar Jogos" largeTitleDisplayMode="always" id="nzk-p7-FUT">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" image="chevron.left" catalog="system" id="62x-Be-XeW"/>
+                        <barButtonItem key="leftBarButtonItem" title="Menu" image="chevron.left" catalog="system" id="62x-Be-XeW">
+                            <connections>
+                                <action selector="backToMenu:" destination="Fzb-dI-9t8" id="zeC-YZ-49S"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uin-h5-YBA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -266,7 +270,7 @@
         <!--Meus Jogos-->
         <scene sceneID="HDD-nJ-Oq2">
             <objects>
-                <viewController id="C7d-hi-ZN9" sceneMemberID="viewController">
+                <viewController id="C7d-hi-ZN9" customClass="MeusJogosViewController" customModule="MyGameList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jbx-0e-GJm" customClass="ColorsGradient" customModule="MyGameList" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="477"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -274,7 +278,11 @@
                         <viewLayoutGuide key="safeArea" id="de3-JR-y4x"/>
                     </view>
                     <navigationItem key="navigationItem" title="Meus Jogos" largeTitleDisplayMode="always" id="MXI-dS-32i">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" image="chevron.left" catalog="system" id="LdC-38-B1A"/>
+                        <barButtonItem key="leftBarButtonItem" title="Menu" image="chevron.left" catalog="system" id="LdC-38-B1A">
+                            <connections>
+                                <action selector="backToMenu:" destination="C7d-hi-ZN9" id="Ce9-IC-wgh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lUH-47-Bco" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -14,5 +14,8 @@ class CadastrarJogosViewController: UIViewController {
         super.viewDidLoad()
 
     }
-
+    @IBAction func backToMenu(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
