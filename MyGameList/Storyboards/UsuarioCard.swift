@@ -34,6 +34,7 @@ class UsuarioCard: UIView {
         let nib = UINib(nibName: "UsuarioCard", bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         view.frame = bounds
+        view.layer.cornerRadius = 10
         view.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
         addSubview(view)
         return view
