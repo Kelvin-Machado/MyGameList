@@ -10,7 +10,7 @@ import UIKit
 
 enum Consoles: String, CustomStringConvertible {
     
-    case playstation
+    case playstation1
     case playstation2
     case playstation3
     case playstation4
@@ -25,7 +25,7 @@ enum Consoles: String, CustomStringConvertible {
     
     var description: String {
         switch self {
-        case .playstation: return "PlayStation"
+        case .playstation1: return "PlayStation"
         case .playstation2: return "PlayStation 2"
         case .playstation3: return "PlayStation 3"
         case .playstation4: return "PlayStation 4"
@@ -42,7 +42,7 @@ enum Consoles: String, CustomStringConvertible {
     
     var image: UIImage {
         switch self {
-        case .playstation: return #imageLiteral(resourceName: "logo-PS1")
+        case .playstation1: return #imageLiteral(resourceName: "logo-PS1")
         case .playstation2: return #imageLiteral(resourceName: "logo-PS2")
         case .playstation3: return #imageLiteral(resourceName: "logo-PS3")
         case .playstation4: return #imageLiteral(resourceName: "logo-PS4")

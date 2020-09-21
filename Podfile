@@ -11,6 +11,7 @@ target 'MyGameList' do
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
   pod 'RealmSwift'
+  pod 'iCarousel'
 
   target 'MyGameListTests' do
     inherit! :search_paths
