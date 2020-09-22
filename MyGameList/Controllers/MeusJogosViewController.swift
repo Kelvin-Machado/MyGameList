@@ -10,7 +10,8 @@ import UIKit
 import iCarousel
 
 class MeusJogosViewController: UIViewController {
-
+    
+    
     let myCarousel: iCarousel = {
         let view = iCarousel()
         view.type = .rotary
@@ -19,6 +20,7 @@ class MeusJogosViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.addSubview(myCarousel)
         myCarousel.dataSource = self
         myCarousel.autoscroll = -0.1
@@ -55,6 +57,4 @@ extension MeusJogosViewController: iCarouselDataSource {
         
         return view
     }
-    
-    
 }

@@ -21,7 +21,11 @@
 		B62586F2251105B3009608B9 /* ColorsGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62586F1251105B3009608B9 /* ColorsGradient.swift */; };
 		B63A64332512CE7A00E7A1FF /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B63A64322512CE7A00E7A1FF /* IQKeyboardManagerSwift */; };
 		B63A64352512D49000E7A1FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A64342512D49000E7A1FF /* MenuViewController.swift */; };
-		B64ED4EE2510F03F005E61F1 /* plataformas.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64ED4ED2510F03F005E61F1 /* plataformas.swift */; };
+		B64ED4EE2510F03F005E61F1 /* Consoles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64ED4ED2510F03F005E61F1 /* Consoles.swift */; };
+		B6598166251A978E001E291A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6598165251A978E001E291A /* Game.swift */; };
+		B6598168251A9903001E291A /* MyGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6598167251A9903001E291A /* MyGame.swift */; };
+		B659816B251AA8EE001E291A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B659816A251AA8EE001E291A /* Alamofire */; };
+		B659816D251AABAA001E291A /* GamePlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B659816C251AABAA001E291A /* GamePlatform.swift */; };
 		B6613C462513E5B400163C62 /* UsuarioCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6613C452513E5B400163C62 /* UsuarioCard.swift */; };
 		B6613C482513E5CD00163C62 /* UsuarioCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6613C472513E5CD00163C62 /* UsuarioCard.xib */; };
 		B6613C4A2514239600163C62 /* MeusJogosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6613C492514239600163C62 /* MeusJogosViewController.swift */; };
@@ -71,7 +75,10 @@
 		B6079AF825101551008E15CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B62586F1251105B3009608B9 /* ColorsGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsGradient.swift; sourceTree = "<group>"; };
 		B63A64342512D49000E7A1FF /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		B64ED4ED2510F03F005E61F1 /* plataformas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plataformas.swift; sourceTree = "<group>"; };
+		B64ED4ED2510F03F005E61F1 /* Consoles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consoles.swift; sourceTree = "<group>"; };
+		B6598165251A978E001E291A /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		B6598167251A9903001E291A /* MyGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGame.swift; sourceTree = "<group>"; };
+		B659816C251AABAA001E291A /* GamePlatform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlatform.swift; sourceTree = "<group>"; };
 		B6613C452513E5B400163C62 /* UsuarioCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioCard.swift; sourceTree = "<group>"; };
 		B6613C472513E5CD00163C62 /* UsuarioCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsuarioCard.xib; sourceTree = "<group>"; };
 		B6613C492514239600163C62 /* MeusJogosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeusJogosViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +92,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82E945454FBC1DE0206BBD0A /* Pods_MyGameList.framework in Frameworks */,
+				B659816B251AA8EE001E291A /* Alamofire in Frameworks */,
 				B6ADE0DA251147E200378FCA /* SkyFloatingLabelTextField in Frameworks */,
 				B63A64332512CE7A00E7A1FF /* IQKeyboardManagerSwift in Frameworks */,
 			);
@@ -180,7 +188,10 @@
 		B6079B04251015B1008E15CC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B64ED4ED2510F03F005E61F1 /* plataformas.swift */,
+				B64ED4ED2510F03F005E61F1 /* Consoles.swift */,
+				B6598165251A978E001E291A /* Game.swift */,
+				B6598167251A9903001E291A /* MyGame.swift */,
+				B659816C251AABAA001E291A /* GamePlatform.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -270,6 +281,7 @@
 			packageProductDependencies = (
 				B6ADE0D9251147E200378FCA /* SkyFloatingLabelTextField */,
 				B63A64322512CE7A00E7A1FF /* IQKeyboardManagerSwift */,
+				B659816A251AA8EE001E291A /* Alamofire */,
 			);
 			productName = MyGameList;
 			productReference = B6079AD12510154F008E15CC /* MyGameList.app */;
@@ -349,6 +361,7 @@
 			packageReferences = (
 				B6ADE0D8251147E200378FCA /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */,
 				B63A64312512CE7A00E7A1FF /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				B6598169251AA8EE001E291A /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = B6079AD22510154F008E15CC /* Products */;
 			projectDirPath = "";
@@ -497,13 +510,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B659816D251AABAA001E291A /* GamePlatform.swift in Sources */,
 				B6079AD92510154F008E15CC /* LoginViewController.swift in Sources */,
 				B63A64352512D49000E7A1FF /* MenuViewController.swift in Sources */,
 				B62586F2251105B3009608B9 /* ColorsGradient.swift in Sources */,
 				B6613C4A2514239600163C62 /* MeusJogosViewController.swift in Sources */,
 				B6079AD52510154F008E15CC /* AppDelegate.swift in Sources */,
 				B6613C462513E5B400163C62 /* UsuarioCard.swift in Sources */,
-				B64ED4EE2510F03F005E61F1 /* plataformas.swift in Sources */,
+				B64ED4EE2510F03F005E61F1 /* Consoles.swift in Sources */,
+				B6598168251A9903001E291A /* MyGame.swift in Sources */,
+				B6598166251A978E001E291A /* Game.swift in Sources */,
 				B6613C4C251423AC00163C62 /* CadastrarJogosViewController.swift in Sources */,
 				B6079AD72510154F008E15CC /* SceneDelegate.swift in Sources */,
 			);
@@ -850,6 +866,14 @@
 				minimumVersion = 6.5.6;
 			};
 		};
+		B6598169251AA8EE001E291A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.2;
+			};
+		};
 		B6ADE0D8251147E200378FCA /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Skyscanner/SkyFloatingLabelTextField.git";
@@ -865,6 +889,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B63A64312512CE7A00E7A1FF /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		B659816A251AA8EE001E291A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B6598169251AA8EE001E291A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 		B6ADE0D9251147E200378FCA /* SkyFloatingLabelTextField */ = {
 			isa = XCSwiftPackageProductDependency;

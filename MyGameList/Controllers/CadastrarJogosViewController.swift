@@ -9,11 +9,11 @@
 import UIKit
 
 class CadastrarJogosViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
+    
     @IBAction func backToMenu(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
