@@ -10,7 +10,14 @@ import Foundation
 import RealmSwift
 
 class GamePlatform: Object {
-    @objc dynamic var Id: Int = 0
+    @objc dynamic var id: Int = 0
     @objc dynamic var namePlatform: Int = 0
     @objc dynamic var slugPlatform: Date?
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
+    let myGames = List<MyGame>()
+
 }

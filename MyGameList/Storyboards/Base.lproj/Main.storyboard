@@ -208,7 +208,8 @@
                                 <state key="selected" image="btn-Meus-Jogos-selected"/>
                                 <state key="highlighted" image="btn-Meus-Jogos-selected"/>
                                 <connections>
-                                    <segue destination="kb4-Bo-pkn" kind="show" id="N5S-XZ-sUs"/>
+                                    <action selector="meusJogosBtnPressed:" destination="zUa-4d-BAk" eventType="touchUpInside" id="cGz-pk-lH7"/>
+                                    <segue destination="kb4-Bo-pkn" kind="show" identifier="goToMeusJogos" id="N5S-XZ-sUs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jT-3Q-TJ4">
@@ -242,6 +243,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cardUsuario" destination="Z2h-NK-74P" id="NJF-ey-bdZ"/>
+                        <outlet property="meusJogosBtn" destination="vFG-xH-T2G" id="yUN-sy-avl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Bh-yn-3kJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
