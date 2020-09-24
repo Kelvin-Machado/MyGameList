@@ -14,7 +14,20 @@ struct Game: Decodable {
     let id: Int
     let slug, name, nameOriginal, gameDescription, released: String
     let metacritic: Int
+    let backgroundImage: String
+    let parentPlatforms: [ParentPlatform]
     let platforms: [PlatformElement]
+}
+
+// MARK: - ParentPlatformName
+struct ParentPlatformName: Decodable {
+    let id: Int
+    let name, slug: String
+}
+
+// MARK: - ParentPlatform
+struct ParentPlatform: Decodable {
+    let platform: ParentPlatformName
 }
 
 // MARK: - PlatformElement
