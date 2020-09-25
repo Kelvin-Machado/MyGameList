@@ -39,7 +39,7 @@ struct Game: Decodable {
     let redditLogo: String
     let redditCount, twitchCount, youtubeCount, reviewsTextCount: Int
     let ratingsCount, suggestionsCount: Int
-    let alternativeNames: [String]
+    let alternativeNames: [String]?
     let metacriticURL: String
     let parentsCount, additionsCount, gameSeriesCount: Int
     let userGame: JSONNull?
@@ -49,7 +49,7 @@ struct Game: Decodable {
     let platforms: [PlatformElement]
     let stores: [Store]
     let developers, genres, tags, publishers: [Developer]
-    let esrbRating: EsrbRating
+    let esrbRating: EsrbRating?
     let clip: Clip
     let descriptionRaw: String
 
