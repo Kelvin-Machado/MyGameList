@@ -215,7 +215,70 @@
                     <view key="view" contentMode="scaleToFill" id="z7h-Zx-Yfm" customClass="ColorsGradient" customModule="MyGameList" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="477"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ig-3D-nYS">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="477"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do jogo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkK-AC-DaR">
+                                        <rect key="frame" x="20" y="10" width="280" height="24"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sA4-wh-9rF">
+                                        <rect key="frame" x="10" y="49" width="300" height="168.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="sA4-wh-9rF" secondAttribute="height" multiplier="495:278" id="fmc-i4-3p0"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ovZ-A4-cRW">
+                                        <rect key="frame" x="0.0" y="237.5" width="320" height="239.5"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pu4-iq-6bp">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="199.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eL5-xY-GrI">
+                                                <rect key="frame" x="0.0" y="199.5" width="320" height="40"/>
+                                                <color key="backgroundColor" red="0.018366964530000002" green="0.4064806104" blue="0.88239818810000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="1my-MK-h4z"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <state key="normal" title="Adicionar">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="sA4-wh-9rF" secondAttribute="trailing" constant="10" id="1Xr-xG-etA"/>
+                                    <constraint firstItem="sA4-wh-9rF" firstAttribute="top" secondItem="OkK-AC-DaR" secondAttribute="bottom" constant="15" id="2fO-ry-ywF"/>
+                                    <constraint firstItem="sA4-wh-9rF" firstAttribute="leading" secondItem="4Ig-3D-nYS" secondAttribute="leading" constant="10" id="6kA-Nm-axY"/>
+                                    <constraint firstItem="ovZ-A4-cRW" firstAttribute="leading" secondItem="4Ig-3D-nYS" secondAttribute="leading" id="C4N-Ys-wDR"/>
+                                    <constraint firstItem="OkK-AC-DaR" firstAttribute="leading" secondItem="4Ig-3D-nYS" secondAttribute="leading" constant="20" id="Fat-9j-0ZE"/>
+                                    <constraint firstItem="ovZ-A4-cRW" firstAttribute="centerX" secondItem="sA4-wh-9rF" secondAttribute="centerX" id="HGm-gW-9ix"/>
+                                    <constraint firstAttribute="trailing" secondItem="OkK-AC-DaR" secondAttribute="trailing" constant="20" id="SbF-kY-cCS"/>
+                                    <constraint firstItem="OkK-AC-DaR" firstAttribute="top" secondItem="4Ig-3D-nYS" secondAttribute="top" constant="10" id="lm5-rq-fyz"/>
+                                    <constraint firstAttribute="bottom" secondItem="ovZ-A4-cRW" secondAttribute="bottom" id="mu8-2O-dVa"/>
+                                    <constraint firstItem="ovZ-A4-cRW" firstAttribute="top" secondItem="sA4-wh-9rF" secondAttribute="bottom" constant="20" id="spO-vh-SY0"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4Ig-3D-nYS" firstAttribute="leading" secondItem="zUl-3C-fjE" secondAttribute="leading" id="X6G-GA-xRs"/>
+                            <constraint firstItem="4Ig-3D-nYS" firstAttribute="top" secondItem="zUl-3C-fjE" secondAttribute="top" id="ggZ-4W-S9H"/>
+                            <constraint firstItem="zUl-3C-fjE" firstAttribute="trailing" secondItem="4Ig-3D-nYS" secondAttribute="trailing" id="neF-l0-o3v"/>
+                            <constraint firstItem="zUl-3C-fjE" firstAttribute="bottom" secondItem="4Ig-3D-nYS" secondAttribute="bottom" id="wlu-KB-oIQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zUl-3C-fjE"/>
                     </view>
                     <navigationItem key="navigationItem" title="Cadastrar Jogos" largeTitleDisplayMode="always" id="nzk-p7-FUT">
@@ -225,6 +288,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="descricaoJogo" destination="Pu4-iq-6bp" id="sP8-6x-kIr"/>
+                        <outlet property="imagemJogo" destination="sA4-wh-9rF" id="0Js-pI-ZwA"/>
+                        <outlet property="jogoView" destination="4Ig-3D-nYS" id="q7a-y1-Zus"/>
+                        <outlet property="nomeJogo" destination="OkK-AC-DaR" id="xQ9-4i-U9a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uin-h5-YBA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

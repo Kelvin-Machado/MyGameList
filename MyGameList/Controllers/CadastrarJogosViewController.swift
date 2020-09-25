@@ -14,9 +14,16 @@ class CadastrarJogosViewController: UIViewController, UISearchControllerDelegate
     let searchBar = UISearchController()
     var searchingGame = ""
     
+    @IBOutlet weak var nomeJogo: UILabel!
+    @IBOutlet weak var imagemJogo: UIImageView!
+    @IBOutlet weak var jogoView: UIView!
+    @IBOutlet weak var descricaoJogo: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        descricaoJogo.isEditable = false
+        imagemJogo.layer.cornerRadius = 30
         configuraSearchBar()
         
     }
@@ -88,10 +95,27 @@ extension CadastrarJogosViewController {
         print("Slug passado: \(slug)")
         request.responseDecodable(of: Game.self) { (response) in
             guard let games = response.value else { return }
-            print(games.nameOriginal)
-            print(games.parentPlatforms)
-            print(games.gameDescription)
+            self.nomeJogo.text = games.nameOriginal
+            self.descricaoJogo.text = games.descriptionRaw
+            
+            self.imagemJogo.load(url: URL(string: games.backgroundImage)!)
+            
         }
         print("fim do request")
+        
+    }
+}
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
     }
 }
