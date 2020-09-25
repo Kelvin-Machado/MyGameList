@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class CadastrarJogosViewController: UIViewController, UISearchControllerDelegate {
     
@@ -48,7 +49,45 @@ extension CadastrarJogosViewController: UISearchBarDelegate {
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchingGame = searchingGame.replacingOccurrences(of: " ", with: "-", options: NSString.CompareOptions.literal, range:nil)
         print("End editing: \(searchingGame)")
+        fetchGameName()
     }
     
+}
+
+// Request
+extension CadastrarJogosViewController {
+    
+    func fetchGameName() {
+        let request = AF.request("https://api.rawg.io/api/games/\(searchingGame)")
+        
+        // procura o jogo pelo nome passado
+        request.responseDecodable(of: Search.self) { (response) in
+            guard let games = response.value else { return }
+            print(games.redirect)
+            print(games.slug)
+            
+            if !games.redirect {
+                print("falso")
+                self.fetchGameSlug(slug: self.searchingGame)
+            } else {
+                self.fetchGameSlug(slug: games.slug)
+            }
+        }
+        self.fetchGameSlug(slug: self.searchingGame)
+    }
+    
+    func fetchGameSlug(slug: String) {
+        //procura o jogo pelo slug recebido, ou pelo nome passado em caso de erro
+        let request = AF.request("https://api.rawg.io/api/games/\(slug)")
+        print("Slug passado: \(slug)")
+        request.responseDecodable(of: Game.self) { (response) in
+            guard let games = response.value else { return }
+            print(games.nameOriginal)
+            print(games.parentPlatforms)
+            print(games.gameDescription)
+        }
+        print("fim do request")
+    }
 }
