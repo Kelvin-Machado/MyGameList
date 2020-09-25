@@ -19,8 +19,8 @@ struct Search: Decodable {
 struct Game: Decodable {
     let id: Int
     let slug, name, nameOriginal, gameDescription: String
-    let metacritic: Int
-    let metacriticPlatforms: [MetacriticPlatform]
+    let metacritic: Int?
+    let metacriticPlatforms: [MetacriticPlatform]?
     let released: String
     let tba: Bool
     let updated: String
@@ -173,7 +173,7 @@ struct ParentPlatform: Decodable {
 struct PlatformElement: Decodable {
     let platform: PlatformPlatform
     let releasedAt: String
-    let requirements: JSONNull?
+    let requirements: Requirements?
 
     enum CodingKeys: String, CodingKey {
         case platform
@@ -198,6 +198,11 @@ struct PlatformPlatform: Decodable {
         case gamesCount = "games_count"
         case imageBackground = "image_background"
     }
+}
+// MARK: - Requirements
+
+struct Requirements: Codable {
+    let minimum, recommended: String
 }
 
 // MARK: - Rating

@@ -49,9 +49,16 @@ extension CadastrarJogosViewController: UISearchBarDelegate {
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchingGame = searchingGame.replacingOccurrences(of: " ", with: "-", options: NSString.CompareOptions.literal, range:nil)
-        print("End editing: \(searchingGame)")
-        fetchGameName()
+        print(searchingGame)
+        if searchingGame != "" {
+            searchingGame = searchingGame.replacingOccurrences(of: " ", with: "-", options: NSString.CompareOptions.literal, range:nil)
+            print("End editing: \(searchingGame)")
+            fetchGameName()
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchingGame = ""
     }
     
 }
@@ -68,10 +75,7 @@ extension CadastrarJogosViewController {
             print(games.redirect)
             print(games.slug)
             
-            if !games.redirect {
-                print("falso")
-                self.fetchGameSlug(slug: self.searchingGame)
-            } else {
+            if games.redirect {
                 self.fetchGameSlug(slug: games.slug)
             }
         }
