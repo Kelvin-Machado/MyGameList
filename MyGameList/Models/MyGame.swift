@@ -17,6 +17,7 @@ class MyGame: Object {
     @objc dynamic var gameDescription: String = ""
     @objc dynamic var released: Date = Date()
     @objc dynamic var metacritic: Int = 0
+    @objc dynamic var backgroundImage: String = ""
     
     override static func primaryKey() -> String? {
         return "id"

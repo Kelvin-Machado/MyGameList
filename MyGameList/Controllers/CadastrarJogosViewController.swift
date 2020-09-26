@@ -19,6 +19,9 @@ class CadastrarJogosViewController: UIViewController, UISearchControllerDelegate
     @IBOutlet weak var jogoView: UIView!
     @IBOutlet weak var descricaoJogo: UITextView!
     
+    @IBOutlet weak var adicionarBtn: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -105,3 +108,4 @@ extension CadastrarJogosViewController {
         
     }
 }
+

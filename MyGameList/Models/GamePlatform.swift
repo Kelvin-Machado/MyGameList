@@ -11,8 +11,7 @@ import RealmSwift
 
 class GamePlatform: Object {
     @objc dynamic var id: Int = 0
-    @objc dynamic var namePlatform: Int = 0
-    @objc dynamic var slugPlatform: Date?
+    @objc dynamic var namePlatform: String = ""
     
     override static func primaryKey() -> String? {
         return "id"
@@ -20,4 +19,7 @@ class GamePlatform: Object {
     
     let myGames = List<MyGame>()
 
+    var parentConta = LinkingObjects(fromType: GameParentPlatform.self, property: "childPlatforms")
 }
+
+
