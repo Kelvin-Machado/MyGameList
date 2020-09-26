@@ -307,7 +307,7 @@
         <!--Salvar Novo Jogo View Controller-->
         <scene sceneID="o4q-UV-Uz4">
             <objects>
-                <viewController id="4Mb-Vl-jf1" customClass="SalvarNovoJogoViewController" customModule="MyGameList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="salvar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Mb-Vl-jf1" customClass="SalvarNovoJogoViewController" customModule="MyGameList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1fD-MV-WeQ" customClass="ColorsGradient" customModule="MyGameList" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

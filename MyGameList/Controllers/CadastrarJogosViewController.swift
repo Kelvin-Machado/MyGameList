@@ -13,6 +13,7 @@ class CadastrarJogosViewController: UIViewController, UISearchControllerDelegate
     
     let searchBar = UISearchController()
     var searchingGame = ""
+    var salvarVC = SalvarNovoJogoViewController()
     
     @IBOutlet weak var nomeJogo: UILabel!
     @IBOutlet weak var imagemJogo: UIImageView!
@@ -25,6 +26,7 @@ class CadastrarJogosViewController: UIViewController, UISearchControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        jogoView.layer.cornerRadius = jogoView.frame.height/10
         descricaoJogo.isEditable = false
         imagemJogo.layer.cornerRadius = 30
         configuraSearchBar()
@@ -47,6 +49,16 @@ class CadastrarJogosViewController: UIViewController, UISearchControllerDelegate
     
     @IBAction func backToMenu(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is SalvarNovoJogoViewController
+        {
+            let vc = segue.destination as? SalvarNovoJogoViewController
+            vc?.nome = salvarVC.nome
+            vc?.imgUrl = salvarVC.imgUrl
+            vc?.notaMeta = salvarVC.notaMeta
+        }
     }
     
 }
@@ -100,8 +112,13 @@ extension CadastrarJogosViewController {
             guard let games = response.value else { return }
             self.nomeJogo.text = games.nameOriginal
             self.descricaoJogo.text = games.descriptionRaw
-            
             self.imagemJogo.load(url: URL(string: games.backgroundImage)!)
+            
+            self.salvarVC.nome = games.nameOriginal
+            self.salvarVC.notaMeta = games.metacritic ?? 0
+            self.salvarVC.imgUrl = games.backgroundImage
+            print(self.salvarVC.imgUrl)
+            self.jogoView.backgroundColor = UIColor.init(named: games.dominantColor)?.withAlphaComponent(0.5)
             
         }
         print("fim do request")
