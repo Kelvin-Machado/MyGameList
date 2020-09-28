@@ -32,6 +32,7 @@
 		B6613C482513E5CD00163C62 /* UsuarioCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6613C472513E5CD00163C62 /* UsuarioCard.xib */; };
 		B6613C4A2514239600163C62 /* MeusJogosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6613C492514239600163C62 /* MeusJogosViewController.swift */; };
 		B6613C4C251423AC00163C62 /* CadastrarJogosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6613C4B251423AC00163C62 /* CadastrarJogosViewController.swift */; };
+		B66CE57125229EC300F5B17C /* Parents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66CE57025229EC300F5B17C /* Parents.swift */; };
 		B6ADE0DA251147E200378FCA /* SkyFloatingLabelTextField in Frameworks */ = {isa = PBXBuildFile; productRef = B6ADE0D9251147E200378FCA /* SkyFloatingLabelTextField */; };
 		B6FBBC2F251EBA05004AF0C0 /* GameParentPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FBBC2E251EBA05004AF0C0 /* GameParentPlatform.swift */; };
 /* End PBXBuildFile section */
@@ -88,6 +89,7 @@
 		B6613C472513E5CD00163C62 /* UsuarioCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsuarioCard.xib; sourceTree = "<group>"; };
 		B6613C492514239600163C62 /* MeusJogosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeusJogosViewController.swift; sourceTree = "<group>"; };
 		B6613C4B251423AC00163C62 /* CadastrarJogosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastrarJogosViewController.swift; sourceTree = "<group>"; };
+		B66CE57025229EC300F5B17C /* Parents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parents.swift; sourceTree = "<group>"; };
 		B6FBBC2E251EBA05004AF0C0 /* GameParentPlatform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameParentPlatform.swift; sourceTree = "<group>"; };
 		FAB8EC5EC9FE4740939090C7 /* Pods_MyGameList_MyGameListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyGameList_MyGameListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -196,6 +198,7 @@
 			children = (
 				B64ED4ED2510F03F005E61F1 /* Consoles.swift */,
 				B6598165251A978E001E291A /* Game.swift */,
+				B66CE57025229EC300F5B17C /* Parents.swift */,
 				B6598167251A9903001E291A /* MyGame.swift */,
 				B659816C251AABAA001E291A /* GamePlatform.swift */,
 				B6FBBC2E251EBA05004AF0C0 /* GameParentPlatform.swift */,
@@ -524,6 +527,7 @@
 				B6FBBC2F251EBA05004AF0C0 /* GameParentPlatform.swift in Sources */,
 				B63A64352512D49000E7A1FF /* MenuViewController.swift in Sources */,
 				B62586F2251105B3009608B9 /* ColorsGradient.swift in Sources */,
+				B66CE57125229EC300F5B17C /* Parents.swift in Sources */,
 				B6613C4A2514239600163C62 /* MeusJogosViewController.swift in Sources */,
 				B6079AD52510154F008E15CC /* AppDelegate.swift in Sources */,
 				B65AFD3F251E800E001C4952 /* loadImages.swift in Sources */,

@@ -219,7 +219,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ig-3D-nYS">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="477"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do jogo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkK-AC-DaR">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pesquise por um jogo 🎮" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkK-AC-DaR">
                                         <rect key="frame" x="20" y="10" width="280" height="24"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
@@ -235,7 +235,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ovZ-A4-cRW">
                                         <rect key="frame" x="0.0" y="237.5" width="320" height="239.5"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="🧐" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pu4-iq-6bp">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pu4-iq-6bp">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="199.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -331,6 +331,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HnB-G9-PAz">
                                         <rect key="frame" x="0.0" y="0.0" width="219" height="60"/>
                                         <state key="normal" image="Metacritic"/>
+                                        <connections>
+                                            <action selector="goToMetacritic:" destination="4Mb-Vl-jf1" eventType="touchUpInside" id="nS7-hH-Fkd"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gr-cJ-RdR">
                                         <rect key="frame" x="219" y="0.0" width="9" height="60"/>
@@ -370,6 +373,7 @@
                     </view>
                     <connections>
                         <outlet property="ImagemJogo" destination="IxV-5Q-WHN" id="eZr-3Y-G8c"/>
+                        <outlet property="metacritic" destination="HnB-G9-PAz" id="5uy-Ok-SfG"/>
                         <outlet property="metascore" destination="URr-d5-sJ4" id="tDY-mb-4q1"/>
                         <outlet property="nomeJogo" destination="73j-W8-YiV" id="5HK-hp-tmC"/>
                     </connections>
