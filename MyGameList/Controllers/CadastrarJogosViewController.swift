@@ -26,8 +26,7 @@ class CadastrarJogosViewController: UIViewController, UISearchControllerDelegate
     
     @IBOutlet weak var adicionarBtn: UIButton!
     
-    static var numberChilds: Int = 0
-    var parentGames = [GameParentPlatform]()
+    var parentplatformsIds = [Int]()
     var platformsIds = [Int]()
     
     override func viewDidLoad() {
@@ -69,7 +68,6 @@ class CadastrarJogosViewController: UIViewController, UISearchControllerDelegate
             vc?.metaURL = salvarVC.metaURL
         }
     }
-    
 }
 
 extension CadastrarJogosViewController: UISearchBarDelegate {
@@ -81,6 +79,8 @@ extension CadastrarJogosViewController: UISearchBarDelegate {
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         print(searchingGame)
+        parentplatformsIds.removeAll()
+        platformsIds.removeAll()
         if searchingGame != "" {
             searchingGame = searchingGame.replacingOccurrences(of: " ", with: "-", options: NSString.CompareOptions.literal, range:nil)
             print("End editing: \(searchingGame)")
@@ -113,10 +113,7 @@ extension CadastrarJogosViewController {
                 
             }
         }
-        DispatchQueue.main.async {
-            self.fetchGameSlug(slug: self.searchingGame)
-        }
-        
+        self.fetchGameSlug(slug: self.searchingGame)
     }
     
     func fetchGameSlug(slug: String) {
@@ -134,60 +131,24 @@ extension CadastrarJogosViewController {
             self.salvarVC.imgUrl = games.backgroundImageAdditional
             self.salvarVC.metaURL = games.metacriticURL
             
-            CadastrarJogosViewController.numberChilds = 0
+            print(games.parentPlatforms.count)
+            print(games.platforms.count)
             
-            //adiciona todas as parent platforms em um array
-            self.background.sync {
-                for index in 0...games.parentPlatforms.count-1 {
-                    let  parentPlatform = GameParentPlatform()
-                    parentPlatform.id = games.parentPlatforms[index].platform.id
-                    
-                    parentPlatform.nameParentPlatform = games.parentPlatforms[index].platform.name
-                    
-                    self.parentGames.append(parentPlatform)
-                    
-                    //pegar a Id da plataforma (ps4, ps3, xbox 360...)
-                    print("platforms: \(games.platforms.count)")
-                    print("parentPlatforms: \(games.parentPlatforms.count)")
-                    print("Parent Platform: \(games.parentPlatforms[index].platform.name)")
-                    
-                    for i in 0...games.platforms.count-1 {
-                        print("Platform \(games.platforms[i].platform.name)")
-                        
-                    }
-                    
-//                    print(games.platforms.count)
-                    
-//                    let i = games.parentPlatforms.count
-//                    print("numero de plataformas: \(i)")
-
-//                    print("Plataformas: \(self.parentGames)")
-                }
+            for parentList in 0...games.parentPlatforms.count-1 {
+                self.parentplatformsIds.append(games.parentPlatforms[parentList].platform.id)
+            }
+            
+            for platList in 0...games.platforms.count-1 {
+                print("Plataforma \(platList): \(games.platforms[platList].platform.name) \\ ID: \(games.platforms[platList].platform.id)")
+                self.platformsIds.append(games.platforms[platList].platform.id)
+                print("Parent IDs: \(self.parentplatformsIds)")
+                print("Platforms IDs: \(self.platformsIds)")
             }
             
             self.descricaoJogo.backgroundColor = #colorLiteral(red: 0.9147711396, green: 0.9093332887, blue: 0.9189512134, alpha: 1)
         }
         print("fim do request")
-        
-    }
-    
-    func fetchNumberChildPlatforms(id: Int) {
-        
-        let request = AF.request("https://api.rawg.io/api/platforms/lists/parents")
-        print("Id passada: \(id)")
-        
-        var numberChildPlatforms = 0
-        request.responseDecodable(of: ParentsList.self) { (response) in
-            guard let parents = response.value else { return }
-            
-            outerLoop: for index in 0...parents.count-1 {
-                if parents.results[index].id == id {
-                    numberChildPlatforms =  parents.results[index].platforms.count
-                    CadastrarJogosViewController.numberChilds = numberChildPlatforms
-                    break outerLoop
-                }
-            }
-        }
+        searchingGame = ""
     }
 }
 
