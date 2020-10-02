@@ -8,6 +8,7 @@
 
 import UIKit
 import DropDown
+import Alamofire
 
 class SalvarNovoJogoViewController: UIViewController {
     
@@ -38,7 +39,7 @@ class SalvarNovoJogoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        fetchNumberChildPlatforms()
         print("ViewDidLoad Salvar")
         print("Parent IDs: \(self.parentplatformsIds)")
         print("Platforms IDs: \(self.platformsIds)")
@@ -181,10 +182,44 @@ extension SalvarNovoJogoViewController {
             dropDownBtn.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 20),
             dropDownBtn.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -20)
         ])
-        
+
     }
     
     @objc func selecionaCategoria() {
         dropDown.show()
+    }
+}
+
+// Request
+extension SalvarNovoJogoViewController {
+    func fetchNumberChildPlatforms() {
+
+        let request = AF.request("https://api.rawg.io/api/platforms/lists/parents")
+
+        request.responseDecodable(of: ParentsList.self) { (response) in
+            guard let parents = response.value else { return }
+            
+            for parentIndex in 0...parents.count-1 {
+                for parentPlatformIdsIndex in 0...self.parentplatformsIds.count-1 {
+                    
+                    if parents.results[parentIndex].id == self.parentplatformsIds[parentPlatformIdsIndex] {
+                        
+                        let numPlatParent = parents.results[parentIndex].platforms.count-1
+                        
+                        for index in 0...numPlatParent {
+                        for parentPlatResultIndex in 0...self.platformsIds.count-1{
+                            
+                            if parents.results[parentIndex].platforms[index].id == self.platformsIds[parentPlatResultIndex] {
+                                print(parents.results[parentIndex].name)
+                                print(parents.results[parentIndex].platforms[parentPlatResultIndex].name)
+                                print("\(parents.results[parentIndex].name): \(parents.results[parentIndex].platforms[parentPlatResultIndex].name)")
+                            }
+                        }
+                    }
+                    }
+                }
+            }
+
+        }
     }
 }
