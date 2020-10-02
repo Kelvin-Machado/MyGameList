@@ -66,6 +66,8 @@ class CadastrarJogosViewController: UIViewController, UISearchControllerDelegate
             vc?.imgUrl = salvarVC.imgUrl
             vc?.notaMeta = salvarVC.notaMeta
             vc?.metaURL = salvarVC.metaURL
+            vc?.parentplatformsIds = parentplatformsIds
+            vc?.platformsIds = platformsIds
         }
     }
 }
@@ -139,10 +141,7 @@ extension CadastrarJogosViewController {
             }
             
             for platList in 0...games.platforms.count-1 {
-                print("Plataforma \(platList): \(games.platforms[platList].platform.name) \\ ID: \(games.platforms[platList].platform.id)")
                 self.platformsIds.append(games.platforms[platList].platform.id)
-                print("Parent IDs: \(self.parentplatformsIds)")
-                print("Platforms IDs: \(self.platformsIds)")
             }
             
             self.descricaoJogo.backgroundColor = #colorLiteral(red: 0.9147711396, green: 0.9093332887, blue: 0.9189512134, alpha: 1)
