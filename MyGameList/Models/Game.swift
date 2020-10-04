@@ -24,14 +24,14 @@ struct Game: Decodable {
     let released: String
     let tba: Bool
     let updated: String
-    let backgroundImage, backgroundImageAdditional: String
+    let backgroundImage, backgroundImageAdditional: String?
     let website: String
     let rating: Double
     let ratingTop: Int
-    let ratings: [Rating]
-    let reactions: [String: Int]
+    let ratings: [Rating]?
+    let reactions: [String: Int]?
     let added: Int
-    let addedByStatus: AddedByStatus
+    let addedByStatus: AddedByStatus?
     let playtime, screenshotsCount, moviesCount, creatorsCount: Int
     let achievementsCount, parentAchievementsCount: Int
     let redditURL: String
@@ -44,13 +44,14 @@ struct Game: Decodable {
     let parentsCount, additionsCount, gameSeriesCount: Int
     let userGame: JSONNull?
     let reviewsCount: Int
+    let communityRating: Int?
     let saturatedColor, dominantColor: String
     let parentPlatforms: [ParentPlatform]
     let platforms: [PlatformElement]
-    let stores: [Store]
-    let developers, genres, tags, publishers: [Developer]
+    let stores: [Store]?
+    let developers, genres, tags, publishers: [Developer]?
     let esrbRating: EsrbRating?
-    let clip: Clip
+    let clip: Clip?
     let descriptionRaw: String
 
     enum CodingKeys: String, CodingKey {
@@ -89,6 +90,7 @@ struct Game: Decodable {
         case gameSeriesCount = "game_series_count"
         case userGame = "user_game"
         case reviewsCount = "reviews_count"
+        case communityRating = "community_rating"
         case saturatedColor = "saturated_color"
         case dominantColor = "dominant_color"
         case parentPlatforms = "parent_platforms"

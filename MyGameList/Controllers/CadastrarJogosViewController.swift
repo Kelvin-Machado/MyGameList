@@ -126,11 +126,11 @@ extension CadastrarJogosViewController {
             guard let games = response.value else { return }
             self.nomeJogo.text = games.nameOriginal
             self.descricaoJogo.text = games.descriptionRaw
-            self.imagemJogo.load(url: URL(string: games.backgroundImage)!)
+            self.imagemJogo.load(url: URL(string: games.backgroundImage!)!)
             
             self.salvarVC.nome = games.nameOriginal
             self.salvarVC.notaMeta = games.metacritic ?? 0
-            self.salvarVC.imgUrl = games.backgroundImageAdditional
+            self.salvarVC.imgUrl = games.backgroundImageAdditional ?? games.backgroundImage!
             self.salvarVC.metaURL = games.metacriticURL
             
             print(games.parentPlatforms.count)
