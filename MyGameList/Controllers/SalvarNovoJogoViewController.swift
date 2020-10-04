@@ -157,8 +157,6 @@ extension SalvarNovoJogoViewController {
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             print("Selected item: \(item) at index: \(index)")
             
-            
-            
             self.dropDown.hide()
             self.dropDownBtn.setTitle("  \(item)", for: .normal)
             self.dropDownBtn.backgroundColor = #colorLiteral(red: 0.00238864636, green: 0.4450881481, blue: 0.900737524, alpha: 0.7036868579)
@@ -166,10 +164,6 @@ extension SalvarNovoJogoViewController {
             self.dropDownBtn.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
             self.plataformaSelecionada = item
             
-            
-        }
-        for index in 0...platformsIds.count-1 {
-            dropDown.dataSource.append(contentsOf: [String(platformsIds[index])])
         }
         
         containerView.addSubview(dropDownBtn)
@@ -210,9 +204,9 @@ extension SalvarNovoJogoViewController {
                         for parentPlatResultIndex in 0...self.platformsIds.count-1{
                             
                             if parents.results[parentIndex].platforms[index].id == self.platformsIds[parentPlatResultIndex] {
-                                print(parents.results[parentIndex].name)
-                                print(parents.results[parentIndex].platforms[parentPlatResultIndex].name)
-                                print("\(parents.results[parentIndex].name): \(parents.results[parentIndex].platforms[parentPlatResultIndex].name)")
+                                print("\(parents.results[parentIndex].name): \(parents.results[parentIndex].platforms[index].name)")
+                                self.dropDown.dataSource.append(contentsOf: [parents.results[parentIndex].platforms[index].name])
+                                
                             }
                         }
                     }
