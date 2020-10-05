@@ -24,11 +24,13 @@ class SalvarNovoJogoViewController: UIViewController {
     var myGameSave = [MyGame]()
     var saveData = MyGameToSave()
     
+    typealias ParentPlatforms = (parentplatformId: Int, parentName: String, platformId: Int, platformName: String)
+    var platformsTupleArray = [ParentPlatforms]()
+    
     var nome = ""
     var imgUrl = ""
     var notaMeta = 0
     var metaURL = ""
-    
     var gameID = 0
     var descriptionGame = ""
     var releasedDate = Date()
@@ -49,13 +51,6 @@ class SalvarNovoJogoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchNumberChildPlatforms()
-        print("ViewDidLoad Salvar")
-        print("Parent IDs: \(self.parentplatformsIds)")
-        print("Platforms IDs: \(self.platformsIds)")
-        
-        print("Descrição: \(descriptionGame)")
-        print("Data: \(releasedDate)")
-        print("Salvar: \(imgUrlCover)")
         
         nomeJogo.text = nome
         
@@ -84,7 +79,6 @@ class SalvarNovoJogoViewController: UIViewController {
         configureDropDown()
         configureDropDownPlataforma()
         configureSaveBtn()
-        print(metaURL)
     }
     
     func configureContainer() {
@@ -136,14 +130,28 @@ class SalvarNovoJogoViewController: UIViewController {
         saveData.gameProperties.metacritic = notaMeta
         saveData.gameProperties.backgroundImage = imgUrlCover
         
-        fetchNumberChildPlatforms()
-        print("Save pressed, data to save 2 : \(saveData.gameProperties)")
+        for index in 0...platformsTupleArray.count-1 {
+            if saveData.platformProperties.namePlatform == platformsTupleArray[index].platformName {
+                saveData.parentProperties.id = platformsTupleArray[index].parentplatformId
+                saveData.parentProperties.nameParentPlatform = platformsTupleArray[index].parentName
+                saveData.platformProperties.id = platformsTupleArray[index].platformId
+                saveData.platformProperties.namePlatform = platformsTupleArray[index].platformName
+            }
+        }
+        
+        save(saveData: saveData)
     }
     
+    func save(saveData: MyGameToSave) {
+        print("SAVE DATA")
+        print(saveData.gameProperties)
+        print(saveData.parentProperties)
+        print(saveData.platformProperties)
+        dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func goToMetacritic(_ sender: Any) {
         if let url = URL(string: metaURL) {
-            print(url)
             UIApplication.shared.open(url)
         }
     }
@@ -229,21 +237,11 @@ extension SalvarNovoJogoViewController {
                                     
                                     if parents.results[parentIndex].platforms[index].id == self.platformsIds[parentPlatResultIndex] {
                                         
-                                        print("\(parents.results[parentIndex].name): \(parents.results[parentIndex].platforms[index].name) - IDs parent \(parents.results[parentIndex].id) plataforma \(self.platformsIds[parentPlatResultIndex])")
+                                        let parentPlatforms = ParentPlatforms(parentplatformId: parents.results[parentIndex].id, parentName: parents.results[parentIndex].name, platformId: parents.results[parentIndex].platforms[index].id, platformName: parents.results[parentIndex].platforms[index].name)
                                         
+                                        platformsTupleArray.append(parentPlatforms)
                                         
                                         self.dropDown.dataSource.append(contentsOf: [parents.results[parentIndex].platforms[index].name])
-                                        
-                                        if !saveData.platformProperties.namePlatform.isEmpty {
-                                            if saveData.platformProperties.namePlatform == parents.results[parentIndex].platforms[index].name {
-                                                
-                                                saveData.platformProperties.id = self.platformsIds[parentPlatResultIndex]
-                                                saveData.parentProperties.id = parents.results[parentIndex].id
-                                                saveData.parentProperties.nameParentPlatform = parents.results[parentIndex].name
-                                                
-                                                print("dados para salvar depois do segundo request \n\n \(saveData.parentProperties),\n\(saveData.platformProperties)")
-                                            }
-                                        }
                                     }
                                 }
                             }
