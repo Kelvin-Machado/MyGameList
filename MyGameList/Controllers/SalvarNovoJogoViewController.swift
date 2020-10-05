@@ -19,11 +19,20 @@ class SalvarNovoJogoViewController: UIViewController {
     @IBOutlet weak var metacritic: UIButton!
     
     let saveBtn = UIButton()
+    var parentSave = [GameParentPlatform]()
+    var platformSave = [GamePlatform]()
+    var myGameSave = [MyGame]()
+    var saveData = MyGameToSave()
     
     var nome = ""
     var imgUrl = ""
     var notaMeta = 0
     var metaURL = ""
+    
+    var gameID = 0
+    var descriptionGame = ""
+    var releasedDate = Date()
+    var imgUrlCover = ""
     
     var parentplatformsIds = [Int]()
     var platformsIds = [Int]()
@@ -43,6 +52,10 @@ class SalvarNovoJogoViewController: UIViewController {
         print("ViewDidLoad Salvar")
         print("Parent IDs: \(self.parentplatformsIds)")
         print("Platforms IDs: \(self.platformsIds)")
+        
+        print("Descrição: \(descriptionGame)")
+        print("Data: \(releasedDate)")
+        print("Salvar: \(imgUrlCover)")
         
         nomeJogo.text = nome
         
@@ -91,9 +104,9 @@ class SalvarNovoJogoViewController: UIViewController {
     }
     
     
-      //    MARK: - Configure buttons
-      
-      func configureSaveBtn() {
+    //    MARK: - Configure buttons
+    
+    func configureSaveBtn() {
         
         saveBtn.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
         saveBtn.setTitleColor(UIColor.white, for:UIControl.State.normal)
@@ -101,22 +114,31 @@ class SalvarNovoJogoViewController: UIViewController {
         saveBtn.layer.cornerRadius = 30
         saveBtn.tintColor = .white
         saveBtn.setTitle("Salvar", for: .normal)
-          saveBtn.addTarget(self, action: #selector(self.saveButtonPressed), for: .touchUpInside)
-          
-          containerView.addSubview(saveBtn)
-          
-          saveBtn.translatesAutoresizingMaskIntoConstraints = false
-          
-          NSLayoutConstraint.activate([
-              saveBtn.topAnchor.constraint(equalTo: dropDownBtn.bottomAnchor, constant: 20),
-              saveBtn.heightAnchor.constraint(equalToConstant: 60),
-              saveBtn.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 20),
-              saveBtn.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -20)
-          ])
-      }
-      @objc func saveButtonPressed() {
-        print("Save pressed")
-      }
+        saveBtn.addTarget(self, action: #selector(self.saveButtonPressed), for: .touchUpInside)
+        
+        containerView.addSubview(saveBtn)
+        
+        saveBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            saveBtn.topAnchor.constraint(equalTo: dropDownBtn.bottomAnchor, constant: 20),
+            saveBtn.heightAnchor.constraint(equalToConstant: 60),
+            saveBtn.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 20),
+            saveBtn.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -20)
+        ])
+    }
+    @objc func saveButtonPressed() {
+        print("Save pressed, data to save: \(saveData.platformProperties.namePlatform)")
+        saveData.gameProperties.id = gameID
+        saveData.gameProperties.name = nome
+        saveData.gameProperties.gameDescription = descriptionGame
+        saveData.gameProperties.released = releasedDate
+        saveData.gameProperties.metacritic = notaMeta
+        saveData.gameProperties.backgroundImage = imgUrlCover
+        
+        fetchNumberChildPlatforms()
+        print("Save pressed, data to save 2 : \(saveData.gameProperties)")
+    }
     
     
     @IBAction func goToMetacritic(_ sender: Any) {
@@ -157,6 +179,8 @@ extension SalvarNovoJogoViewController {
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             print("Selected item: \(item) at index: \(index)")
             
+            saveData.platformProperties.namePlatform = item
+            
             self.dropDown.hide()
             self.dropDownBtn.setTitle("  \(item)", for: .normal)
             self.dropDownBtn.backgroundColor = #colorLiteral(red: 0.00238864636, green: 0.4450881481, blue: 0.900737524, alpha: 0.7036868579)
@@ -176,7 +200,7 @@ extension SalvarNovoJogoViewController {
             dropDownBtn.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 20),
             dropDownBtn.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -20)
         ])
-
+        
     }
     
     @objc func selecionaCategoria() {
@@ -187,33 +211,50 @@ extension SalvarNovoJogoViewController {
 // Request
 extension SalvarNovoJogoViewController {
     func fetchNumberChildPlatforms() {
-
-        let request = AF.request("https://api.rawg.io/api/platforms/lists/parents")
-
-        request.responseDecodable(of: ParentsList.self) { (response) in
-            guard let parents = response.value else { return }
+        if self.dropDown.dataSource.isEmpty {
+            let request = AF.request("https://api.rawg.io/api/platforms/lists/parents")
             
-            for parentIndex in 0...parents.count-1 {
-                for parentPlatformIdsIndex in 0...self.parentplatformsIds.count-1 {
-                    
-                    if parents.results[parentIndex].id == self.parentplatformsIds[parentPlatformIdsIndex] {
+            request.responseDecodable(of: ParentsList.self) { [self] (response) in
+                guard let parents = response.value else { return }
+                
+                for parentIndex in 0...parents.count-1 {
+                    for parentPlatformIdsIndex in 0...self.parentplatformsIds.count-1 {
                         
-                        let numPlatParent = parents.results[parentIndex].platforms.count-1
-                        
-                        for index in 0...numPlatParent {
-                        for parentPlatResultIndex in 0...self.platformsIds.count-1{
+                        if parents.results[parentIndex].id == self.parentplatformsIds[parentPlatformIdsIndex] {
                             
-                            if parents.results[parentIndex].platforms[index].id == self.platformsIds[parentPlatResultIndex] {
-                                print("\(parents.results[parentIndex].name): \(parents.results[parentIndex].platforms[index].name)")
-                                self.dropDown.dataSource.append(contentsOf: [parents.results[parentIndex].platforms[index].name])
-                                
+                            let numPlatParent = parents.results[parentIndex].platforms.count-1
+                            
+                            for index in 0...numPlatParent {
+                                for parentPlatResultIndex in 0...self.platformsIds.count-1{
+                                    
+                                    if parents.results[parentIndex].platforms[index].id == self.platformsIds[parentPlatResultIndex] {
+                                        
+                                        print("\(parents.results[parentIndex].name): \(parents.results[parentIndex].platforms[index].name) - IDs parent \(parents.results[parentIndex].id) plataforma \(self.platformsIds[parentPlatResultIndex])")
+                                        
+                                        
+                                        self.dropDown.dataSource.append(contentsOf: [parents.results[parentIndex].platforms[index].name])
+                                        
+                                        if !saveData.platformProperties.namePlatform.isEmpty {
+                                            if saveData.platformProperties.namePlatform == parents.results[parentIndex].platforms[index].name {
+                                                
+                                                saveData.platformProperties.id = self.platformsIds[parentPlatResultIndex]
+                                                saveData.parentProperties.id = parents.results[parentIndex].id
+                                                saveData.parentProperties.nameParentPlatform = parents.results[parentIndex].name
+                                                
+                                                print("dados para salvar depois do segundo request \n\n \(saveData.parentProperties),\n\(saveData.platformProperties)")
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
-                    }
                 }
+                
             }
-
+        } else {
+            self.dropDown.dataSource.removeAll()
+            fetchNumberChildPlatforms()
         }
     }
 }

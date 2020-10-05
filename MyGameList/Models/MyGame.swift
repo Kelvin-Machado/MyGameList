@@ -9,11 +9,15 @@
 import Foundation
 import RealmSwift
 
+class MyGameToSave {
+    let gameProperties = MyGame()
+    let platformProperties = GamePlatform()
+    let parentProperties = GameParentPlatform()
+}
+
 class MyGame: Object {
     @objc dynamic var id: Int = 0
     @objc dynamic var name: String = ""
-    @objc dynamic var nameOriginal: String = ""
-    @objc dynamic var slug : String = ""
     @objc dynamic var gameDescription: String = ""
     @objc dynamic var released: Date = Date()
     @objc dynamic var metacritic: Int = 0

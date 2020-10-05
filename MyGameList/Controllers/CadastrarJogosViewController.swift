@@ -66,8 +66,12 @@ class CadastrarJogosViewController: UIViewController, UISearchControllerDelegate
             vc?.imgUrl = salvarVC.imgUrl
             vc?.notaMeta = salvarVC.notaMeta
             vc?.metaURL = salvarVC.metaURL
+            vc?.descriptionGame = salvarVC.descriptionGame
+            vc?.releasedDate = salvarVC.releasedDate
+            vc?.imgUrlCover = salvarVC.imgUrlCover
             vc?.parentplatformsIds = parentplatformsIds
             vc?.platformsIds = platformsIds
+            vc?.gameID = salvarVC.gameID
         }
     }
 }
@@ -132,6 +136,18 @@ extension CadastrarJogosViewController {
             self.salvarVC.notaMeta = games.metacritic ?? 0
             self.salvarVC.imgUrl = games.backgroundImageAdditional ?? games.backgroundImage!
             self.salvarVC.metaURL = games.metacriticURL
+            self.salvarVC.imgUrlCover = games.backgroundImage!
+            self.salvarVC.descriptionGame = games.descriptionRaw
+            self.salvarVC.gameID = games.id
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            guard let date = dateFormatter.date(from: games.released) else {
+                fatalError()
+            }
+            print(date)
+            
+            self.salvarVC.releasedDate = date
             
             print(games.parentPlatforms.count)
             print(games.platforms.count)
