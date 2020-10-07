@@ -8,10 +8,13 @@
 
 import UIKit
 import DropDown
+import RealmSwift
 import Alamofire
 
 class SalvarNovoJogoViewController: UIViewController {
     
+    //    MARK: - Properties
+    let realm = try! Realm()
     
     @IBOutlet weak var nomeJogo: UILabel!
     @IBOutlet weak var ImagemJogo: UIImageView!
@@ -144,10 +147,58 @@ class SalvarNovoJogoViewController: UIViewController {
     
     func save(saveData: MyGameToSave) {
         print("SAVE DATA")
-        print(saveData.gameProperties)
-        print(saveData.parentProperties)
-        print(saveData.platformProperties)
-        dismiss(animated: true, completion: nil)
+        let sucesso = true
+        do {
+            if let parent = realm.objects(GameParentPlatform.self).filter("id = \(saveData.parentProperties.id)").first  {
+                if let platform = realm.objects(GamePlatform.self).filter("id = \(saveData.platformProperties.id)").first {
+                    try realm.write {
+                        
+                        realm.add(saveData.gameProperties, update: .modified)
+                        platform.myGames.append(saveData.gameProperties)
+                        showAlert(sucesso: sucesso)
+                    }
+                
+                } else {
+                    try realm.write {
+                        realm.add(saveData.platformProperties)
+                        parent.childPlatforms.append(saveData.platformProperties)
+                    }
+                    save(saveData: saveData)
+                }
+            } else {
+                try realm.write {
+                    realm.add(saveData.parentProperties)
+                }
+                save(saveData: saveData)
+            }
+        } catch {
+            print("Error saving game \(error)")
+            showAlert(sucesso: !sucesso)
+            
+        }
+    }
+    
+    func showAlert(sucesso: Bool) {
+        var msg = ""
+        var titulo = ""
+        sucesso ? (msg = "Jogo Salvo") : (msg = "Ocorreu um erro")
+        sucesso ? (titulo = "Sucesso!!!") : (titulo = "Erro")
+        let alert = UIAlertController(title: titulo, message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                                        switch action.style {
+                                        case .default:
+                                            self.dismiss(animated: true, completion: nil)
+                                            
+                                        case .cancel:
+                                            print("cancel")
+                                            
+                                        case .destructive:
+                                            print("destructive")
+                                            
+                                        @unknown default:
+                                            fatalError()
+                                        }}))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func goToMetacritic(_ sender: Any) {
