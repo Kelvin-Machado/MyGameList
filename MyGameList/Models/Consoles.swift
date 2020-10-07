@@ -8,6 +8,63 @@
 
 import UIKit
 
+enum parentsCover: String, CustomStringConvertible {
+    
+    case pc
+    case playstation
+    case xbox
+    case iOS
+    case android
+    case appleMacintosh
+    case linux
+    case nintendo
+    case atari
+    case comodore
+    case sega
+    case threedo
+    case neogeo
+    case web
+    
+    var description: String {
+        switch self {
+        case .pc: return "PC"
+        case .playstation: return "PlayStation"
+        case .xbox: return "Xbox"
+        case .iOS: return "iOS"
+        case .android: return "Android"
+        case .appleMacintosh: return "Apple Macintosh"
+        case .linux: return "Linux"
+        case .nintendo: return "Nintendo"
+        case .atari: return "Atari"
+        case .comodore: return "Commodore / Amiga"
+        case .sega: return "Sega"
+        case .threedo: return "3DO"
+        case .neogeo: return "Neo Geo"
+        case .web: return "Web"
+        
+        }
+    }
+    var image: UIImage {
+        switch self {
+        case .pc: return #imageLiteral(resourceName: "logo-PC")
+        case .playstation: return #imageLiteral(resourceName: "logo-Cover-PlayStation")
+        case .xbox: return #imageLiteral(resourceName: "logo-XBOX")
+        case .iOS: return #imageLiteral(resourceName: "ios-logo")
+        case .android: return #imageLiteral(resourceName: "logo-android")
+        case .appleMacintosh: return #imageLiteral(resourceName: "loc-macos")
+        case .linux: return #imageLiteral(resourceName: "logo-linux")
+        case .nintendo: return #imageLiteral(resourceName: "logo-nintendo")
+        case .atari: return #imageLiteral(resourceName: "logo-atari")
+        case .comodore: return #imageLiteral(resourceName: "logo-comodore")
+        case .sega: return #imageLiteral(resourceName: "logo-sega")
+        case .threedo: return #imageLiteral(resourceName: "logo-3do")
+        case .neogeo: return #imageLiteral(resourceName: "logo-neogeo")
+        case .web: return #imageLiteral(resourceName: "logo-web")
+        
+        }
+    }
+}
+
 enum Consoles: String, CustomStringConvertible {
     
     case playstation1
