@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import RealmSwift
 import iCarousel
 
 class MeusJogosViewController: UIViewController {
     
+    //    MARK: - Properties
     
+    let realm = try! Realm()
+    var parents: RealmSwift.Results<GameParentPlatform>?
     let myCarousel: iCarousel = {
         let view = iCarousel()
         view.type = .rotary
@@ -20,11 +24,15 @@ class MeusJogosViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadItens()
         view.addSubview(myCarousel)
         myCarousel.dataSource = self
         myCarousel.autoscroll = -0.1
         myCarousel.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height * 0.75)
+    }
+    
+    func loadItens() {
+        parents = realm.objects(GameParentPlatform.self)
     }
     
     @IBAction func backToMenu(_ sender: Any) {
@@ -34,7 +42,7 @@ class MeusJogosViewController: UIViewController {
 
 extension MeusJogosViewController: iCarouselDataSource {
     func numberOfItems(in carousel: iCarousel) -> Int {
-        return 10
+        return parents?.count ?? 0
     }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
@@ -44,16 +52,15 @@ extension MeusJogosViewController: iCarouselDataSource {
         let imageview = UIImageView(frame: view.bounds)
         view.addSubview(imageview)
         imageview.contentMode = .scaleAspectFit
-        if index % 2 == 0 {
-            if index > 6 {
-                imageview.image = #imageLiteral(resourceName: "logo-XBOX")
-            } else {
-                imageview.image = #imageLiteral(resourceName: "logo-Cover-PlayStation")
+        
+        for i in 0...parentsCover.allCases.count-1 {
+                if parents?[index].nameParentPlatform == parentsCover.allCases[i].description {
+                    imageview.image = parentsCover.allCases[i].image
             }
-        } else {
-            imageview.image = #imageLiteral(resourceName: "FrontPlayStation")
-            imageview.layer.cornerRadius = 20
+            
         }
+        
+        
         
         return view
     }

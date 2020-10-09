@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum parentsCover: String, CustomStringConvertible {
+enum parentsCover: String, CustomStringConvertible, CaseIterable {
     
     case pc
     case playstation
@@ -24,6 +24,8 @@ enum parentsCover: String, CustomStringConvertible {
     case threedo
     case neogeo
     case web
+    
+    static var count: Int { return parentsCover.web.hashValue + 1}
     
     var description: String {
         switch self {

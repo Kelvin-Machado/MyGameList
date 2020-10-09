@@ -22,9 +22,6 @@ class SalvarNovoJogoViewController: UIViewController {
     @IBOutlet weak var metacritic: UIButton!
     
     let saveBtn = UIButton()
-    var parentSave = [GameParentPlatform]()
-    var platformSave = [GamePlatform]()
-    var myGameSave = [MyGame]()
     var saveData = MyGameToSave()
     
     typealias ParentPlatforms = (parentplatformId: Int, parentName: String, platformId: Int, platformName: String)
