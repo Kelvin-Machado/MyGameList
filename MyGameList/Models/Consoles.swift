@@ -39,7 +39,7 @@ enum parentsCover: String, CustomStringConvertible, CaseIterable {
         case .nintendo: return "Nintendo"
         case .atari: return "Atari"
         case .comodore: return "Commodore / Amiga"
-        case .sega: return "Sega"
+        case .sega: return "SEGA"
         case .threedo: return "3DO"
         case .neogeo: return "Neo Geo"
         case .web: return "Web"

@@ -130,13 +130,19 @@ extension CadastrarJogosViewController {
             guard let games = response.value else { return }
             self.nomeJogo.text = games.nameOriginal
             self.descricaoJogo.text = games.descriptionRaw
-            self.imagemJogo.load(url: URL(string: games.backgroundImage!)!)
+            if !(games.backgroundImage == nil) {
+                self.imagemJogo.load(url: URL(string: games.backgroundImage!)!)
+                self.salvarVC.imgUrl = games.backgroundImageAdditional ?? games.backgroundImage!
+                self.salvarVC.imgUrlCover = games.backgroundImage!
+            } else {
+                self.imagemJogo.load(url: URL(string: "https://i.imgur.com/j5fgqOm.png")!)
+                self.salvarVC.imgUrl = "https://i.imgur.com/j5fgqOm.png"
+                self.salvarVC.imgUrlCover = "https://i.imgur.com/j5fgqOm.png"
+            }
             
             self.salvarVC.nome = games.nameOriginal
             self.salvarVC.notaMeta = games.metacritic ?? 0
-            self.salvarVC.imgUrl = games.backgroundImageAdditional ?? games.backgroundImage!
             self.salvarVC.metaURL = games.metacriticURL
-            self.salvarVC.imgUrlCover = games.backgroundImage!
             self.salvarVC.descriptionGame = games.descriptionRaw
             self.salvarVC.gameID = games.id
             

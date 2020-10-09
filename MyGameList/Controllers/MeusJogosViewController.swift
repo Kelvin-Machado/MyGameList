@@ -24,15 +24,11 @@ class MeusJogosViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadItens()
+        parents = realm.objects(GameParentPlatform.self)
         view.addSubview(myCarousel)
         myCarousel.dataSource = self
         myCarousel.autoscroll = -0.1
         myCarousel.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height * 0.75)
-    }
-    
-    func loadItens() {
-        parents = realm.objects(GameParentPlatform.self)
     }
     
     @IBAction func backToMenu(_ sender: Any) {
