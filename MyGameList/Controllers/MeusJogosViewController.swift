@@ -27,16 +27,19 @@ class MeusJogosViewController: UIViewController {
         parents = realm.objects(GameParentPlatform.self)
         view.addSubview(myCarousel)
         myCarousel.dataSource = self
-        myCarousel.autoscroll = -0.1
+        myCarousel.autoscroll = 0.1
         myCarousel.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height * 0.75)
     }
+    
+    
     
     @IBAction func backToMenu(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
 }
 
-extension MeusJogosViewController: iCarouselDataSource {
+extension MeusJogosViewController: iCarouselDataSource, iCarouselDelegate {
     func numberOfItems(in carousel: iCarousel) -> Int {
         return parents?.count ?? 0
     }
@@ -50,14 +53,21 @@ extension MeusJogosViewController: iCarouselDataSource {
         imageview.contentMode = .scaleAspectFit
         
         for i in 0...parentsCover.allCases.count-1 {
-                if parents?[index].nameParentPlatform == parentsCover.allCases[i].description {
-                    imageview.image = parentsCover.allCases[i].image
+            if parents?[index].nameParentPlatform == parentsCover.allCases[i].description {
+                imageview.image = parentsCover.allCases[i].image
             }
-            
         }
         
-        
+        view.isUserInteractionEnabled = true
+
+        let tapGesture = UITapGestureRecognizer(target: self , action: #selector(toque))
+        tapGesture.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tapGesture)
         
         return view
+    }
+    
+    @objc func toque() {
+        print(myCarousel.currentItemIndex)
     }
 }
