@@ -71,7 +71,6 @@ extension MeusJogosViewController: iCarouselDataSource, iCarouselDelegate {
         print(parents![myCarousel.currentItemIndex].nameParentPlatform)
         parentSelected = parents![myCarousel.currentItemIndex].nameParentPlatform
         
-        
         self.performSegue(withIdentifier: "goToGamesTable", sender: self)
     }
     
@@ -79,6 +78,7 @@ extension MeusJogosViewController: iCarouselDataSource, iCarouselDelegate {
         if(segue.identifier == "goToGamesTable"){
                 let displayVC = segue.destination as! GamesTableViewController
             displayVC.parentName = parents![myCarousel.currentItemIndex].nameParentPlatform
+            displayVC.parents = parents
         }
     }
 }

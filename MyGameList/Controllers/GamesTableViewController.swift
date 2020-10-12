@@ -7,93 +7,76 @@
 //
 
 import UIKit
+import RealmSwift
+
+class SectionsData {
+    var platformName: String?
+    var gameName: [String]?
+    
+    init(platformName: String, gameName: [String]) {
+        self.platformName = platformName
+        self.gameName = gameName
+    }
+}
 
 class GamesTableViewController: UITableViewController {
-
+    
     @IBOutlet weak var parentTitle: UILabel!
+    
     var parentName = ""
     var numChildsPlatforms = 0
+    var parents: RealmSwift.Results<GameParentPlatform>?
     
+    var sections: [String] = []
+    
+    var secData = [SectionsData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         self.parentTitle.text = parentName
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        for i in 0...parents!.count-1 {
+            if parentName == parents![i].nameParentPlatform {
+                numChildsPlatforms = parents![i].childPlatforms.count
+                
+                for j in 0...parents![i].childPlatforms.count-1 {
+                    sections.append(parents![i].childPlatforms[j].namePlatform)
+                    var gameslist: [String] = []
+                    for k in 0...parents![i].childPlatforms[j].myGames.count-1 {
+                        gameslist.append(parents![i].childPlatforms[j].myGames[k].name)
+                    }
+                    
+                    secData.append(SectionsData.init(platformName: parents![i].childPlatforms[j].namePlatform, gameName: gameslist))
+                }
+            }
+        }
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return numChildsPlatforms
+        
+        return secData.count
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return secData[section].gameName?.count ?? 0
     }
-
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return parentName
+        
+        return secData[section].platformName
     }
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        cell.textLabel?.text = secData[indexPath.section].gameName?[indexPath.row]
+        
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
