@@ -67,8 +67,6 @@ extension MeusJogosViewController: iCarouselDataSource, iCarouselDelegate {
     }
     
     @objc func toque() {
-        print(myCarousel.currentItemIndex)
-        print(parents![myCarousel.currentItemIndex].nameParentPlatform)
         parentSelected = parents![myCarousel.currentItemIndex].nameParentPlatform
         
         self.performSegue(withIdentifier: "goToGamesTable", sender: self)

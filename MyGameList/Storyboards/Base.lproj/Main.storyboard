@@ -443,11 +443,68 @@
                     <navigationItem key="navigationItem" title="Parent Platform" id="czJ-4M-3PB"/>
                     <connections>
                         <outlet property="parentTitle" destination="JAS-Qd-cpF" id="lRR-zh-Xa2"/>
+                        <segue destination="A6E-0f-7ny" kind="show" identifier="goToGameInfo" id="RTs-SA-A6d"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oeG-a8-uNk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6523" y="398"/>
+            <point key="canvasLocation" x="6525" y="396"/>
+        </scene>
+        <!--Game Info View Controller-->
+        <scene sceneID="tdQ-Ti-NNj">
+            <objects>
+                <viewController id="A6E-0f-7ny" customClass="GameInfoViewController" customModule="MyGameList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x0v-mU-tdK" customClass="ColorsGradient" customModule="MyGameList" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlM-pS-A6U">
+                                <rect key="frame" x="16" y="20" width="288" height="27.5"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yHW-gc-rfd">
+                                <rect key="frame" x="16" y="57.5" width="288" height="176"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="yHW-gc-rfd" secondAttribute="height" multiplier="18:11" id="ucb-mN-vBI"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tPy-QU-goD">
+                                <rect key="frame" x="16" y="243.5" width="288" height="294.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RgJ-Rt-kKe"/>
+                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                        <constraints>
+                            <constraint firstItem="tPy-QU-goD" firstAttribute="leading" secondItem="RgJ-Rt-kKe" secondAttribute="leading" constant="16" id="5Z6-mI-X4N"/>
+                            <constraint firstItem="tPy-QU-goD" firstAttribute="top" secondItem="yHW-gc-rfd" secondAttribute="bottom" constant="10" id="6qZ-Ic-lMs"/>
+                            <constraint firstItem="PlM-pS-A6U" firstAttribute="leading" secondItem="RgJ-Rt-kKe" secondAttribute="leading" constant="16" id="Gq0-07-Y3q"/>
+                            <constraint firstItem="PlM-pS-A6U" firstAttribute="top" secondItem="RgJ-Rt-kKe" secondAttribute="top" constant="20" id="IIb-rg-wM8"/>
+                            <constraint firstItem="RgJ-Rt-kKe" firstAttribute="trailing" secondItem="tPy-QU-goD" secondAttribute="trailing" constant="16" id="Odc-RJ-MJt"/>
+                            <constraint firstItem="RgJ-Rt-kKe" firstAttribute="trailing" secondItem="PlM-pS-A6U" secondAttribute="trailing" constant="16" id="Sdt-Ni-TLg"/>
+                            <constraint firstItem="yHW-gc-rfd" firstAttribute="leading" secondItem="RgJ-Rt-kKe" secondAttribute="leading" constant="16" id="Thr-sD-jAp"/>
+                            <constraint firstItem="RgJ-Rt-kKe" firstAttribute="trailing" secondItem="yHW-gc-rfd" secondAttribute="trailing" constant="16" id="eHo-9e-pef"/>
+                            <constraint firstItem="RgJ-Rt-kKe" firstAttribute="bottom" secondItem="tPy-QU-goD" secondAttribute="bottom" constant="10" id="tSt-ri-buI"/>
+                            <constraint firstItem="yHW-gc-rfd" firstAttribute="top" secondItem="PlM-pS-A6U" secondAttribute="bottom" constant="10" id="zOK-VA-5tU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Oqw-sp-K6T"/>
+                    <connections>
+                        <outlet property="gameDescTxt" destination="tPy-QU-goD" id="ERZ-rS-8Dv"/>
+                        <outlet property="gameImg" destination="yHW-gc-rfd" id="Yt4-TV-XOO"/>
+                        <outlet property="gameTitleLbl" destination="PlM-pS-A6U" id="Izg-sH-fFA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="asd-iG-xs3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7269.375" y="396.12676056338029"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pFi-sO-kOn">
@@ -583,11 +640,17 @@
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
