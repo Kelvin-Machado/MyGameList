@@ -16,6 +16,7 @@ class MeusJogosViewController: UIViewController {
     
     let realm = try! Realm()
     var parentSelected = ""
+    
     var parents: RealmSwift.Results<GameParentPlatform>?
     let myCarousel: iCarousel = {
         let view = iCarousel()
@@ -23,13 +24,20 @@ class MeusJogosViewController: UIViewController {
         return view
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        loadCarousel()
+    }
+    
+    func loadCarousel() {
+        
         parents = realm.objects(GameParentPlatform.self)
         view.addSubview(myCarousel)
         myCarousel.dataSource = self
         myCarousel.autoscroll = 0.1
         myCarousel.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height * 0.75)
+        
     }
     
     @IBAction func backToMenu(_ sender: Any) {
@@ -68,7 +76,6 @@ extension MeusJogosViewController: iCarouselDataSource, iCarouselDelegate {
     
     @objc func toque() {
         parentSelected = parents![myCarousel.currentItemIndex].nameParentPlatform
-        
         self.performSegue(withIdentifier: "goToGamesTable", sender: self)
     }
     

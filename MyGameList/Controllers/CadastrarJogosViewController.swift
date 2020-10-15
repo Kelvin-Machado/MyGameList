@@ -44,7 +44,7 @@ class CadastrarJogosViewController: UIViewController, UISearchControllerDelegate
         
         searchBar.searchBar.delegate = self
         
-        searchBar.searchBar.autocapitalizationType = .words
+        searchBar.searchBar.autocapitalizationType = .none
         searchBar.searchBar.keyboardType = .namePhonePad
         searchBar.searchBar.sizeToFit()
         searchBar.searchBar.backgroundColor = .clear
@@ -104,7 +104,7 @@ extension CadastrarJogosViewController: UISearchBarDelegate {
 extension CadastrarJogosViewController {
     
     func fetchGameName() {
-        let request = AF.request("https://api.rawg.io/api/games/\(searchingGame)")
+        let request = AF.request("https://api.rawg.io/api/games/\(searchingGame.lowercased())")
         
         // procura o jogo pelo nome passado
         request.responseDecodable(of: Search.self) { (response) in
