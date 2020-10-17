@@ -42,6 +42,11 @@ class GamesTableViewController: UITableViewController {
         super.viewDidLoad()
         self.parentTitle.text = parentName
         
+        navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationItem.title = ""
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
         tableView.rowHeight = 65.0
         
         fillTable()
@@ -88,7 +93,8 @@ class GamesTableViewController: UITableViewController {
                                             }
                                             if parents![i].childPlatforms.isEmpty {
                                                 self.realm.delete(parents![i])
-                                                self.dismiss(animated: true, completion: nil)
+                                                
+                                                navigationController?.popViewController(animated: true)
                                             }
                                             secData.removeAll()
                                             fillTable()

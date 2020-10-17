@@ -30,6 +30,12 @@ class MeusJogosViewController: UIViewController {
         loadCarousel()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        myCarousel.reloadData()
+    }
+    
     func loadCarousel() {
         
         parents = realm.objects(GameParentPlatform.self)
