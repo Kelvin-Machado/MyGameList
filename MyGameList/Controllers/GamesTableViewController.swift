@@ -69,10 +69,12 @@ class GamesTableViewController: UITableViewController {
                 }
             }
         }
+        tableView.reloadData()
     }
     
     func getInfo(parent:String, platform:String, gameName:String) {
         parents = realm.objects(GameParentPlatform.self)
+        
         for i in 0...parents!.count-1 {
             if parent == parents![i].nameParentPlatform {
                 for j in 0...parents![i].childPlatforms.count-1 {
@@ -87,24 +89,26 @@ class GamesTableViewController: UITableViewController {
                                     do {
                                         try self.realm.write {
                                             self.realm.delete(parents![i].childPlatforms[j].myGames[k])
+                                            
                                             if parents![i].childPlatforms[j].myGames.isEmpty {
                                                 
                                                 self.realm.delete(parents![i].childPlatforms[j])
                                             }
+                                            
                                             if parents![i].childPlatforms.isEmpty {
                                                 self.realm.delete(parents![i])
                                                 
                                                 navigationController?.popViewController(animated: true)
                                             }
                                             secData.removeAll()
+                                            sections.removeAll()
                                             fillTable()
-                                            tableView.reloadData()
-                                            deleteGame = false
                                         }
                                     } catch {
                                         print("Erro ao deletar jogo, \(error)")
                                     }
                                 }
+                                deleteGame = false
                                 break
                             }
                         }
@@ -147,7 +151,7 @@ class GamesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
         getInfo(parent: parentName, platform: secData[indexPath[0]].platformName!, gameName: secData[indexPath[0]].gameName![indexPath[1]])
         
         DispatchQueue.main.async {

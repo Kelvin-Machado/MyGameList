@@ -30,6 +30,7 @@ class GameInfoViewController: UIViewController {
         gameImg.backgroundColor = .clear
         gameImg.layer.cornerRadius = 30
         gameDescTxt.text = desc
+        gameDescTxt.isEditable = false
     }
 
 }
