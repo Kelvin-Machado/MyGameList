@@ -26,7 +26,7 @@ class MeusJogosViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        parents = realm.objects(GameParentPlatform.self)
         loadCarousel()
     }
     
@@ -38,7 +38,7 @@ class MeusJogosViewController: UIViewController {
     
     func loadCarousel() {
         
-        parents = realm.objects(GameParentPlatform.self)
+        
         view.addSubview(myCarousel)
         myCarousel.dataSource = self
         myCarousel.autoscroll = 0.1
