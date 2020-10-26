@@ -27,7 +27,12 @@ class MeusJogosViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         parents = realm.objects(GameParentPlatform.self)
-        loadCarousel()
+        if parents!.count > 0 {
+            loadCarousel()
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
+       
     }
     
     override func viewDidAppear(_ animated: Bool) {

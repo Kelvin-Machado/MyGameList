@@ -53,21 +53,28 @@ class GamesTableViewController: UITableViewController {
     }
     
     func fillTable() {
+        secData.removeAll()
+        sections.removeAll()
+        
         parents = realm.objects(GameParentPlatform.self)
-        for i in 0...parents!.count-1 {
-            if parentName == parents![i].nameParentPlatform {
-                numChildsPlatforms = parents![i].childPlatforms.count
-                
-                for j in 0...parents![i].childPlatforms.count-1 {
-                    sections.append(parents![i].childPlatforms[j].namePlatform)
-                    var gameslist: [String] = []
-                    for k in 0...parents![i].childPlatforms[j].myGames.count-1 {
-                        gameslist.append(parents![i].childPlatforms[j].myGames[k].name)
-                    }
+        if parents!.count > 0 {
+            for i in 0...parents!.count-1 {
+                if parentName == parents![i].nameParentPlatform {
+                    numChildsPlatforms = parents![i].childPlatforms.count
                     
-                    secData.append(SectionsData.init(platformName: parents![i].childPlatforms[j].namePlatform, gameName: gameslist))
+                    for j in 0...parents![i].childPlatforms.count-1 {
+                        sections.append(parents![i].childPlatforms[j].namePlatform)
+                        var gameslist: [String] = []
+                        for k in 0...parents![i].childPlatforms[j].myGames.count-1 {
+                            gameslist.append(parents![i].childPlatforms[j].myGames[k].name)
+                        }
+                        
+                        secData.append(SectionsData.init(platformName: parents![i].childPlatforms[j].namePlatform, gameName: gameslist))
+                    }
                 }
             }
+        } else {
+            navigationController?.popViewController(animated: true)
         }
         tableView.reloadData()
     }
@@ -100,13 +107,11 @@ class GamesTableViewController: UITableViewController {
                                                 
                                                 navigationController?.popViewController(animated: true)
                                             }
-                                            secData.removeAll()
-                                            sections.removeAll()
-                                            fillTable()
                                         }
                                     } catch {
                                         print("Erro ao deletar jogo, \(error)")
                                     }
+                                    
                                 }
                                 deleteGame = false
                                 break
@@ -116,6 +121,8 @@ class GamesTableViewController: UITableViewController {
                 }
             }
         }
+        
+        fillTable()
     }
     
     
