@@ -25,3 +25,7 @@
 
 <p><div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div></p>
 <p><div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div></p>
+
+<ul>
+<li style="text-align: left;"><strong>API dispon&iacute;vel em <a title="RAWG API" href="https://rawg.io/apidocs">RAWG Video Games Database API</a></strong></li>
+</ul>
